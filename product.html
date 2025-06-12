@@ -58,6 +58,12 @@
     </div>
   </div>
 
+  <div class="info-box">
+    <label for="start-date">Select your starting date:</label>
+    <input type="date" id="start-date" name="start-date" min="<?= date('Y-m-d') ?>">
+    <span id="end-date-display"></span>
+  </div>
+
 
   <div class="description">
     <h2>Service Description</h2>
@@ -81,7 +87,8 @@
     </div>
   </div>
 
-  <a href="payment.html" class="buy-btn">Buy Now</a>
+  <a id="buy-btn" href="#" class="buy-btn">Buy Now</a>
+
 
 </div>
 
@@ -118,6 +125,34 @@
     const menu = document.getElementById('nav-menu');
     menu.classList.toggle('open');
   }
+</script>
+
+
+<script>
+  const startDateInput = document.getElementById('start-date');
+  const endDateDisplay = document.getElementById('end-date-display');
+  const buyBtn = document.getElementById('buy-btn');
+
+  let selectedStartDate = '';
+  let selectedEndDate = '';
+
+  startDateInput.addEventListener('change', () => {
+    const startDate = new Date(startDateInput.value);
+    if (!isNaN(startDate.getTime())) {
+      const endDate = new Date(startDate);
+      endDate.setDate(startDate.getDate() + 6); // 7 jours total
+      selectedStartDate = startDate.toISOString().split('T')[0];
+      selectedEndDate = endDate.toISOString().split('T')[0];
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      endDateDisplay.textContent = `Your stay will end on ${endDate.toLocaleDateString(undefined, options)}.`;
+
+      // Met à jour dynamiquement l’URL du bouton
+      buyBtn.href = `payment.html?start=${selectedStartDate}&end=${selectedEndDate}`;
+    } else {
+      endDateDisplay.textContent = '';
+      buyBtn.href = '#';
+    }
+  });
 </script>
 
 </body>
