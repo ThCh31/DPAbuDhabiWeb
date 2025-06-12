@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Package Detail</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+
+<!-- Header avec menu -->
+<header>
+  <a href="index.html">
+    <div class="logo-circle"><span>M</span></div>
+  </a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav class="menu" id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="aboutUs.html">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<img src="img/abudhabiCity.jpg" alt="Beach view" class="package-banner">
+
+
+
+<!-- Contenu principal du package -->
+<div class="package-container animate__animated animate__slow invisible">
+
+  <h1 class="package-title">The Balanced Path: Fitness × Culture × Nature</h1>
+  <p class="package-subtitle">Train hard. Recover deeply. Discover endlessly.</p>
+
+  <div class="info-row">
+    <div class="info-card">
+      <label for="level">Level:</label>
+      <select id="level">
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </div>
+    <div class="info-card">
+      <span>1199 €</span>
+    </div>
+    <div class="info-card">
+      <span>📍 Abu Dhabi</span>
+    </div>
+  </div>
+
+
+  <div class="description">
+    <h2>Service Description</h2>
+    <p>
+      <strong>Day 1:</strong> Arrival & welcome dinner<br/>
+      <strong>Day 2:</strong> Morning yoga, cultural tour<br/>
+      <strong>Day 3:</strong> Beach workout, desert safari<br/>
+      <strong>Day 4:</strong> Recovery day with spa treatment<br/>
+      <strong>Day 5:</strong> Hiking & outdoor activities<br/>
+      <strong>Day 6:</strong> Reflection and goal setting<br/>
+      <strong>Day 7:</strong> Farewell brunch and departure
+    </p>
+  </div>
+
+  <div class="gallery">
+    <h2>Activity Highlights</h2>
+    <div class="images">
+      <img src="img/desertQuad.jpg" alt="Quad">
+      <img src="img/baseJump.jpg" alt="Base Jump">
+      <img src="img/sportCar.jpg" alt="Racing">
+    </div>
+  </div>
+
+  <a href="payment.html" class="buy-btn">Buy Now</a>
+
+</div>
+
+
+<script>
+  const elements = document.querySelectorAll('.animate__animated');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('invisible');
+        entry.target.classList.add('animate__fadeIn');
+      }
+    });
+  }, {
+    threshold: 0.1 // Seuil d'apparition à 10% dans la fenêtre
+  });
+
+  elements.forEach(el => observer.observe(el));
+</script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('open');
+  }
+</script>
+
+
+
+<!-- Script pour menu hamburger -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

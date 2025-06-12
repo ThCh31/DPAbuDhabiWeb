@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Abu Dhabi Recharge</title>
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    body, #home, #home > div {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .invisible {
+      opacity: 0;
+    }
+
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+
+    header {
+      background: linear-gradient(to right, #00b4db, #fcb045);
+      padding: 15px 0;
+      text-align: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav {
+      background: linear-gradient(to right, #00b4db, #fcb045);
+      padding: 30px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: white;
+      user-select: none;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      position: absolute;
+      right: 30px;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li > a {
+      display: block;
+      padding: 8px 16px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 6px;
+      user-select: none;
+    }
+
+    nav ul li:hover > a {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      background: white;
+      flex-direction: column;
+      min-width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1001;
+    }
+
+    nav ul li:hover > ul {
+      display: flex;
+    }
+
+    nav ul li ul li a {
+      color: #333;
+      padding: 10px 15px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    nav ul li ul li a:hover {
+      background-color: #fcb045;
+      color: white;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+      background-color: white;
+      margin: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    section:target {
+      display: block;
+    }
+
+    section#home {
+      display: block;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    #home > .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 0 auto 1rem auto;
+      background: transparent;
+    }
+
+    #home > .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    #home > .promo {
+      background-color: #cce7ff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 900px;
+      margin: 1.5rem auto 3rem;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      color: #003366;
+    }
+
+    #home > .promo .promo-text {
+      flex: 1;
+      padding-right: 30px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    #home > .promo .promo-text h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    #home > .promo .promo-text h3 span {
+      display: block;
+    }
+
+    #home > .promo .promo-text a button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      width: fit-content;
+    }
+
+    #home > .promo .promo-text a button:hover {
+      background-color: #0056b3;
+    }
+
+    #home > .promo .promo-image {
+      flex: 1;
+      text-align: right;
+    }
+
+    #home > .promo .promo-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      max-height: 250px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .activity-tabs {
+      width: 100%;
+      background: white;
+      padding: 0 10px;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 2rem 0 3rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .activity-tabs input[type="radio"] {
+      display: none;
+    }
+
+    .activity-tabs label {
+      cursor: pointer;
+      font-weight: 700;
+      color: #007bff;
+      background-color: #e6f0ff;
+      padding: 12px 25px;
+      border-radius: 25px;
+      user-select: none;
+      font-size: 1.1rem;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,123,255,0.2);
+    }
+
+    .activity-tabs label:hover {
+      background-color: #cce4ff;
+      color: #0056b3;
+      box-shadow: 0 4px 10px rgba(0,86,179,0.3);
+    }
+
+    .activity-tabs input[type="radio"]:checked + label {
+      background-color: #0056b3;
+      color: white;
+      box-shadow: 0 6px 15px rgba(0,86,179,0.6);
+    }
+
+
+    .tab-content {
+      display: none;
+      margin-top: 25px;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row; /* par défaut en ligne */
+    }
+
+    /* affichage actif */
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: flex;
+    }
+
+    /* Pour "Our Services" : mettre les activités en colonne */
+    #content2 {
+      flex-direction: column;
+      align-items: center; /* centrage horizontal si besoin */
+    }
+
+    /* style des items, même hauteur */
+    .service-item {
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 15px;
+      box-sizing: border-box;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 350px;
+    }
+
+
+    .service-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .service-item p {
+      font-size: 1rem;
+      color: #444;
+      margin: 0 0 15px 0;
+      flex-grow: 1;
+    }
+
+    .service-item button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      align-self: center;
+    }
+
+    .service-item button:hover {
+      background-color: #0056b3;
+    }
+
+
+    .services-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline id="background-video">
+  <source src="video/backgroundHome.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<div class="overlay"></div>
+
+<nav>
+  Abu Dhabi Recharge
+  <ul>
+    <li>
+      <a href="#">Menu ▾</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutUs.html">About</a></li>
+        <li><a href="#book">Book Online</a></li>
+        <li><a href="#account">My Account</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<section id="home" class="animate__animated invisible">
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="video/beachVideo.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="promo animate__animated invisible">
+    <div class="promo-text">
+      <h3>
+        <span>Embark on</span>
+        <span>your fitness</span>
+        <span>adventure</span>
+      </h3>
+      <a href="#book"><button>Explore</button></a>
+    </div>
+    <div class="promo-image">
+      <img src="img/yoga.jpg" alt="Yoga" />
+    </div>
+  </div>
+
+  <div class="activity-tabs animate__animated invisible">
+    <div class="services-wrapper">
+    <input type="radio" name="tab" id="tab1" checked />
+    <label for="tab1">All Services</label>
+
+    <input type="radio" name="tab" id="tab2" />
+    <label for="tab2">Our Services</label>
+
+    <input type="radio" name="tab" id="tab3" />
+    <label for="tab3">Super Adventure</label>
+
+    <div class="tab-content" id="content1">
+      <div class="service-item">
+        <img src="img/yoga.jpg" alt="Yoga" />
+        <p>Relaxing yoga classes suitable for all levels.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+      <div class="service-item">
+        <img src="img/gym.jpg" alt="Gym" />
+        <p>Intensive gym sessions to boost your fitness.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+      <div class="service-item">
+        <img src="img/fitness.jpg" alt="Fitness">
+        <p>Personalized fitness coaching to reach your goals.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+      <div class="service-item">
+        <img src="img/massage.jpg" alt="Massage">
+        <p>Rejuvenating massage therapy with professionals.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="content2">
+      <div class="service-item">
+        <img src="img/personal_training.jpg" alt="Personal Training" />
+        <p>Personalized training programs tailored to your needs.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="content3">
+      <div class="service-item">
+        <img src="img/safari.jpg" alt="Desert Safari">
+        <p>Explore desert dunes with 4x4 adventures.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+      <div class="service-item">
+        <img src="img/quad.jpg" alt="Quad Biking" />
+        <p>Quad biking trips across desert dunes.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+      <div class="service-item">
+        <img src="img/visit.jpg" alt="Adventure" />
+        <p>Visit the city of Abu Dhabi.</p>
+        <button onclick="location.href='product.html'">Book</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="about" class="animate__animated invisible">
+  <h2>About</h2>
+  <p>Welcome to the Abu Dhabi Recharge fitness and adventure center!</p>
+</section>
+
+<section id="book" class="animate__animated invisible">
+  <h2>Book Online</h2>
+  <p>Book your favorite activities online easily.</p>
+</section>
+
+<section id="account" class="animate__animated invisible">
+  <h2>My Account</h2>
+  <p>Access and manage your account details here.</p>
+</section>
+
+<section id="blog" class="animate__animated invisible">
+  <h2>Blog</h2>
+  <p>Read the latest news and tips on fitness and adventures.</p>
+</section>
+
+<section id="contact" class="animate__animated invisible">
+  <h2>Contact</h2>
+  <p>Get in touch with us for any questions or bookings.</p>
+</section>
+
+<!-- Animation script -->
+<script>
+  const elements = document.querySelectorAll('.animate__animated');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('invisible');
+
+        // Remove animation classes to restart animation
+        entry.target.classList.remove('animate__fadeIn');
+
+        // Trigger reflow to restart animation
+        void entry.target.offsetWidth;
+
+        // Add animation class back to replay animation
+        entry.target.classList.add('animate__fadeIn');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+
+  elements.forEach(el => observer.observe(el));
+</script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

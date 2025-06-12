@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+
+
+
+<body>
+  <header>
+    <a href="index.html">
+      <div class="logo-circle"><span>LOGO</span></div>
+    </a>
+
+
+    <!-- Menu Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Menu de navigation -->
+    <nav class="menu" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="aboutUs.html">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="video/beachVideo.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
+
+
+  <section class="our-story animate__animated animate__slow invisible">
+    <div class="left-panel">
+      <h1>Our<br>Story</h1>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="right-panel">
+      <h3>Get to Know Us.</h3>
+      <p>
+        The Abu Dhabi Recharge is a curated wellness and adventure travel experience that brings together fitness,
+        culture, recovery, and exploration in one unforgettable journey. We are a team of passionate fitness experts,
+        wellness professionals, and travel curators based in the heart of Abu Dhabi, committed to helping you recharge
+        your body, mind, and spirit.
+      </p>
+    </div>
+  </section>
+
+
+    <section class="team-section animate__animated animate__slow invisible">
+      <h1 class="team-title">Our Team</h1>
+      <p>
+        This is your Team page. It’s a great space to introduce your team and talk about what makes it special, such as your culture and work philosophy. Don’t be afraid to illustrate personality and character to help users connect with your team.
+      </p>
+    </section>
+
+  <section class="carousel animate__animated animate__slow invisible">
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="img/coach01.png" alt="Coach 1" />
+        </div>
+        <div class="card-content">
+          <h3>Fermentum sagittis proin</h3>
+          <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="img/coach01.png" alt="Coach 2" />
+        </div>
+        <div class="card-content">
+          <h3>Sed quis rhoncus placerat</h3>
+          <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrapper">
+          <img src="img/coach01.png" alt="Coach 3" />
+        </div>
+        <div class="card-content">
+          <h3>Ultrices urna sit lobortis</h3>
+          <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+
+  <script>
+    const elements = document.querySelectorAll('.animate__animated');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('invisible');
+          entry.target.classList.add('animate__fadeIn');
+        }
+      });
+    }, {
+      threshold: 0.1 // Seuil d'apparition à 10% dans la fenêtre
+    });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('open');
+    }
+  </script>
+
+  </body>
+</html>
