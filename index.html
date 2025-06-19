@@ -14,10 +14,33 @@
           <img src="assets/img/logo.jpeg" alt="Logo" />
           <span class="site-title">The Abu Dhabi Recharge</span>
         </div>
+
+
         <nav>
           <a href="#Experiences">Experiences</a>
           <a href="#Events">Events</a>
           <a href="#Gallery">Gallery</a>
+          <!-- ➜ hamburger dropdown -->
+          <div class="dropdown">
+            <button class="hamburger" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Experiences</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Blogs</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
         </nav>
       </div>
     </header>
@@ -36,33 +59,95 @@
 
 
     <!-- TITRE DES EXPERIENCES -->
-    <section class="experience-title section-in-left">
-      <h2>Experiences</h2>
+    <section id="Experiences" class="experience-title section-in-left">
+      <div class="experience-header">
+        <h2>Experiences</h2>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All packages</button>
+          <button class="filter-btn" data-filter="wellness">Wellness Escape</button>
+          <button class="filter-btn" data-filter="creator">Creator Experience</button>
+          <button class="filter-btn" data-filter="cultural">Cultural immersion</button>
+          <button class="filter-btn" data-filter="fitness">Fitness Journey</button>
+        </div>
+      </div>
     </section>
 
+
     <!-- LES CARTES -->
-    <section id="Experiences" class="experience-cards section-in-right">
-      <div class="card">
-        <img src="assets/img/gym.jpeg" alt="Fitness Tour" />
+    <section id="ExperiencesCards" class="experience-cards section-in-right">
+
+      <div class="card section-in-right wellness">
+        <img src="assets/img/gym.jpeg" alt="Wellness & Mindfullness Retreat" />
         <div class="card-text">
-          <h3>ABU DHABI FITNESS TOURS</h3>
+          <h3>WELLNESS & MINDFULLNESS RETREAT</h3>
           <a href="#">Discover more →</a>
         </div>
       </div>
-      <div class="card">
-        <img src="assets/img/adventure.jpeg" alt="Healthy Talk" />
+
+      <div class="card section-in-right wellness">
+        <img src="assets/img/adventure.jpeg" alt="Mental Resilience & Biohacking Camp" />
         <div class="card-text">
-          <h3>HEALTHY LIVING TALK</h3>
+          <h3>MENTAL RESILIENCE & BIOHACKING CAMP</h3>
           <a href="#">Discover more →</a>
         </div>
       </div>
-      <div class="card">
-        <img src="assets/img/visiting.jpeg" alt="Sheikh Zayed Mosque" />
+
+      <div class="card section-in-right creator">
+        <img src="assets/img/visiting.jpeg" alt="Corporate / Team-Building Retreat" />
         <div class="card-text">
-          <h3>RELAXING IN SHEIKH ZAYED MOSQUE</h3>
+          <h3>CORPORATE / TEAM-BUILDING RETREAT</h3>
           <a href="#">Discover more →</a>
         </div>
       </div>
+
+      <div class="card section-in-right creator">
+        <img src="assets/img/visiting.jpeg" alt="Content Creator / Influencer Tour" />
+        <div class="card-text">
+          <h3>CONTENT CREATOR / INFLUENCER TOUR</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+
+      <div class="card section-in-right creator">
+        <img src="assets/img/visiting.jpeg" alt="Sustainability & Eco-Education Tour" />
+        <div class="card-text">
+          <h3>SUSTAINABILITY & ECO-EDUCATION TOUR</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+
+      <div class="card section-in-right cultural">
+        <img src="assets/img/visiting.jpeg" alt="Art, Culture & Heritage Tour" />
+        <div class="card-text">
+          <h3>ART, CULTURE & HERITAGE TOUR</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+
+      <div class="card section-in-right cultural">
+        <img src="assets/img/visiting.jpeg" alt="Family-Friendly Cultural Holiday" />
+        <div class="card-text">
+          <h3>FAMILY-FRIENDLY CULTURAL HOLIDAY</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+
+      <div class="card section-in-right fitness">
+        <img src="assets/img/visiting.jpeg" alt="BALANCED fitness tour" />
+        <div class="card-text">
+          <h3>BALANCED</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+
+      <div class="card section-in-right fitness">
+        <img src="assets/img/visiting.jpeg" alt="Limitless: Strength x Speed x Sky" />
+        <div class="card-text">
+          <h3>LIMITLESS: STRENGTH x SPEED x SKY</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+
     </section>
 
     <!-- events -->
@@ -86,7 +171,6 @@
     <section class="experience-title section-in-left">
       <h2>Reviews</h2>
     </section>
-
 
 
     <script src="assets/js/homePageAnimation.js"></script>
