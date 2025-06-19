@@ -47,6 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ─── Centrage vs scrollable ───
+function updateExperienceScroll() {
+  const container = document.querySelector('.experience-cards');
+  if (!container) return;
+  if (container.scrollWidth > container.clientWidth) {
+    container.classList.add('scrollable');
+  } else {
+    container.classList.remove('scrollable');
+  }
+}
+
+// on fait le check au load et au resize
+window.addEventListener('load',  updateExperienceScroll);
+window.addEventListener('resize', updateExperienceScroll);
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const filters = document.querySelectorAll('.filter-btn');
@@ -67,36 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
           card.classList.add('hidden');
         }
       });
-    });
-  });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const filters       = document.querySelectorAll('.filter-btn');
-  const container     = document.getElementById('ExperienceCards');
-  const cards         = container.querySelectorAll('.card');
-
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // 1) activer le bouton
-      filters.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const key = btn.dataset.filter;
-
-      if (key === 'all') {
-        // ouvre le panneau à taille normale
-        container.classList.add('offcanvas', 'open');
-        // montre toutes les cartes
-        cards.forEach(c => c.classList.remove('hidden'));
-      } else {
-        // ferme le panneau
-        container.classList.remove('open');
-        // applique le filtrage inline
-        cards.forEach(card => {
-          card.classList.toggle('hidden', !card.classList.contains(key));
-        });
-      }
+      // 3) Recalculer l’état scrollable vs centré
+      updateExperienceScroll();
     });
   });
 });
