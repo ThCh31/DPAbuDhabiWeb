@@ -15,9 +15,9 @@
           <span class="site-title">The Abu Dhabi Recharge</span>
         </div>
         <nav>
-          <a href="#">Tours</a>
-          <a href="#">Gallery</a>
-          <a href="#">Events</a>
+          <a href="#Experiences">Experiences</a>
+          <a href="#Events">Events</a>
+          <a href="#Gallery">Gallery</a>
         </nav>
       </div>
     </header>
@@ -36,12 +36,12 @@
 
 
     <!-- TITRE DES EXPERIENCES -->
-    <section class="experience-title section-anim">
+    <section class="experience-title section-in-left">
       <h2>Experiences</h2>
     </section>
 
     <!-- LES CARTES -->
-    <section class="experience-cards section-anim">
+    <section id="Experiences" class="experience-cards section-in-right">
       <div class="card">
         <img src="assets/img/gym.jpeg" alt="Fitness Tour" />
         <div class="card-text">
@@ -65,44 +65,30 @@
       </div>
     </section>
 
+    <!-- events -->
+    <section id="Events" class="experience-title section-in-left">
+      <h2>Events</h2>
+    </section>
+
     <!-- Gallery photo -->
-    <section class="experience-title">
+    <section id="Gallery" class="experience-title section-in-left">
       <h2>Gallery</h2>
     </section>
 
 
     <!-- Extrait des blogs -->
-    <section class="experience-title">
+    <section class="experience-title section-in-left">
       <h2>Blogs</h2>
     </section>
 
 
     <!-- Extrait des reviews -->
-    <section class="experience-title">
+    <section class="experience-title section-in-left">
       <h2>Reviews</h2>
     </section>
 
 
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const obs = new IntersectionObserver((entries, o) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              o.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.section-anim, .hero-text').forEach(el => {
-          obs.observe(el);
-        });
-      });
-    </script>
-
-
-
-
+    <script src="assets/js/homePageAnimation.js"></script>
   </body>
 </html>

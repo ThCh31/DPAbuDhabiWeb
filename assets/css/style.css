@@ -8,7 +8,6 @@
 body, html {
   font-family: 'Segoe UI', sans-serif;
   color: white;
-  background: linear-gradient(to bottom, #f8d7b5, #e09c6d 40%, #000 80%);
 }
 
 /* style.css */
@@ -164,8 +163,8 @@ nav a {
 /* état initial : invisible et légèrement “décalé” */
 .section-anim {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* état final : visible et à sa place */
@@ -174,11 +173,33 @@ nav a {
   transform: translateY(0);
 }
 
+/* slide-in depuis la gauche */
+.section-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.section-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* slide-in depuis la droite */
+.section-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.section-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* pour le texte du hero : slide depuis la gauche */
 .hero-text {
   opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-60px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 .hero-text.visible {
   opacity: 1;
