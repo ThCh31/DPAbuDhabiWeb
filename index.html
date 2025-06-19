@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abu Dhabi Recharge</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR SEULE -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img src="assets/img/logo.jpeg" alt="Logo" />
+          <span class="site-title">The Abu Dhabi Recharge</span>
+        </div>
+        <nav>
+          <a href="#">Tours</a>
+          <a href="#">Gallery</a>
+          <a href="#">Events</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SECTION AVEC IMAGE DE FOND -->
+    <section class="hero section-anim">
+      <div class="hero-text">
+        <h1>Recharge Your Spirit,<br>Ignite Your Senses</h1>
+        <p>For your secret flights, come recharge with us,</p>
+        <p>Explore exercise, relaxation, and rich Emirati culture with our exclusive experiences in Abu Dhabi.</p>
+      </div>
+    </section>
+
+    <!-- Fondu entre image et contenu -->
+    <div class="fade-transition"></div>
+
+
+    <!-- TITRE DES EXPERIENCES -->
+    <section class="experience-title section-anim">
+      <h2>Experiences</h2>
+    </section>
+
+    <!-- LES CARTES -->
+    <section class="experience-cards section-anim">
+      <div class="card">
+        <img src="assets/img/gym.jpeg" alt="Fitness Tour" />
+        <div class="card-text">
+          <h3>ABU DHABI FITNESS TOURS</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/img/adventure.jpeg" alt="Healthy Talk" />
+        <div class="card-text">
+          <h3>HEALTHY LIVING TALK</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/img/visiting.jpeg" alt="Sheikh Zayed Mosque" />
+        <div class="card-text">
+          <h3>RELAXING IN SHEIKH ZAYED MOSQUE</h3>
+          <a href="#">Discover more →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery photo -->
+    <section class="experience-title">
+      <h2>Gallery</h2>
+    </section>
+
+
+    <!-- Extrait des blogs -->
+    <section class="experience-title">
+      <h2>Blogs</h2>
+    </section>
+
+
+    <!-- Extrait des reviews -->
+    <section class="experience-title">
+      <h2>Reviews</h2>
+    </section>
+
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const obs = new IntersectionObserver((entries, o) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              o.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-anim, .hero-text').forEach(el => {
+          obs.observe(el);
+        });
+      });
+    </script>
+
+
+
+
+  </body>
+</html>
