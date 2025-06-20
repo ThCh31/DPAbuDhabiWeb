@@ -724,3 +724,11 @@ a.logo:focus {
   width: fit-content;
   margin: 30px auto 0;
 }
+
+
+/* Centre automatiquement tous les .show-more-btn */
+.show-more-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+}
