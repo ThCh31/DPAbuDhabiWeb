@@ -136,6 +136,7 @@ nav {
 /* style des items */
 .dropdown-menu li a {
   white-space: nowrap;
+  text-align: left;
   display: block;
   padding: 8px 12px;
   color: #333;
@@ -144,10 +145,12 @@ nav {
   transition: background 0.2s ease;
 }
 .dropdown-menu li a:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
 }
 
-
+.dropdown-menu li:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
 
 
 
@@ -401,7 +404,7 @@ nav {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.4);  /* assombrit l’image de fond */
-  z-index: 1;
+  z-index: 2;
 }
 
 .about-hero .hero-text {
@@ -421,21 +424,20 @@ nav {
 .about-main {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
 }
 
 /* Sections de contenu */
 .content-section {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 60px 20px;
   border-radius: 10px;
 }
 /* Alterner fond clair / foncé */
 .content-section:nth-child(odd) {
-  background: transparent;
-  color: white;
+  background: #f4efe8;
+  color: #002d32;
 }
 .content-section:nth-child(even) {
   background: rgba(0, 45, 50, 0.05); /* léger voile sombre sur le blanc */
@@ -473,4 +475,25 @@ nav {
 }
 .btn:hover {
   background: #b35b32;
+}
+
+.logo-link,
+.logo-link:hover,
+.logo-link:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Désactive le style de lien sur le logo */
+a.logo {
+  text-decoration: none; /* pas de souligné */
+  color: inherit;        /* garde la même couleur que le parent */
+}
+
+a.logo:hover,
+a.logo:focus {
+  text-decoration: none;
+  color: inherit;
+  outline: none;         /* supprime le contour au focus, si tu veux */
+  cursor: pointer;       /* conserve le curseur main */
 }
