@@ -8,6 +8,8 @@
 body, html {
   font-family: 'Tinos', 'Segoe UI', sans-serif;
   color: white;
+  background-color: #f4efe8;
+
 }
 
 /* style.css */
@@ -16,24 +18,23 @@ html {
 }
 
 /* Navbar */
+
 .navbar {
+  position: absolute;  /* passe de relative à absolu */
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 20px;
-  position: relative;
-  z-index: 2;
+  padding: 20px 40px;     /* espace autour des items */
+  z-index: 10;            /* au-dessus de l’image */
 
-  /* Dégradé calqué sur le ciel réel */
-  background: linear-gradient(to bottom,
-  rgba(255, 203, 169, 0.85) 0%,
-  rgba(180, 145, 120, 0.75) 40%,
-  rgba(60, 95, 110, 0.7) 100%
-  );
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: transparent;  /* plus de dégradé sous le menu */
+  backdrop-filter: none;    /* désactive le flou */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
+
 
 .site-title {
   font-size: 3.5em;
@@ -157,12 +158,13 @@ nav {
   position: relative;
   height: calc(100vw * 9 / 16); /* hauteur égale à ratio de l'image */
   background:
-    url('../img/homeBackground.jpeg') no-repeat center center/cover;
+    url('../img/homeBackground.jpeg') no-repeat center top/cover;
   display: flex;
   align-items: flex-start;      /* texte à gauche */
   justify-content: flex-start;  /* texte en haut */
-  padding: 60px 40px;
+  padding: 190px 40px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
 }
 
 
@@ -185,10 +187,7 @@ nav {
 }
 
 
-.fade-transition {
-  height: 100px;
-  background: linear-gradient(to bottom, rgb(0, 45, 50), #f4efe8);
-}
+
 
 
 
@@ -232,7 +231,7 @@ nav {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.3);
   padding: 12px;
   box-sizing: border-box;
 }
@@ -403,14 +402,14 @@ a.card:hover {
 /* === Styles spécifiques à la page About Us === */
 .about-hero {
   position: relative;
-  height: 60vh;
-  background: url('../img/homeBackground.jpeg') no-repeat center 25%/cover;
+  height: calc(90vw * 9 / 16);
+  background: url('../img/homeBackground.jpeg') no-repeat top /cover;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  padding: 80px 20px;
+  padding: 80px 60px;
   color: #fff;
 }
 
@@ -452,7 +451,7 @@ a.card:hover {
 }
 /* Alterner fond clair / foncé */
 .content-section:nth-child(odd) {
-  background: #f4efe8;
+  background: #cdc5c1;
   color: #002d32;
 }
 .content-section:nth-child(even) {
