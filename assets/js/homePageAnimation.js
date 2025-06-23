@@ -88,3 +88,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// … votre code existant …
+
+// ↓ en bas de homePageAnimation.js, juste avant la dernière accolade :
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) {           // seuil de 30px (ajustable)
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+

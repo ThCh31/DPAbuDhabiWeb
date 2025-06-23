@@ -19,36 +19,66 @@ html {
 
 /* Navbar */
 
+/* --------- ETAT INITIAL ---------- */
 .navbar {
-  position: absolute;  /* passe de relative à absolu */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;     /* espace autour des items */
-  z-index: 10;            /* au-dessus de l’image */
+  padding: 20px 40px;              /* hauteur “normale” */
+  background: transparent;         /* ← plus de fond gris */
+  transition:
+    background 0.3s ease,         /* fond qui apparaît en douceur */
+    padding 0.3s ease;             /* réduire en douceur la hauteur */
+  z-index: 999;
+}
 
-  background: transparent;  /* plus de dégradé sous le menu */
-  backdrop-filter: none;    /* désactive le flou */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+/* --- ÉTAT INITIAL --- */
+.navbar .logo img {
+  height: 150px;                      /* taille “normale” du logo */
+  transition: height 0.3s ease;      /* transition douce */
+}
+
+.navbar .site-title {
+  font-size: 3.5rem;                   /* taille “normale” du titre */
+  font-weight: bold;
+  transition: font-size 0.3s ease;   /* transition douce */
+}
+
+/* --- QUAND ON A SCROLLÉ --- */
+.navbar.scrolled .logo img {
+  height: 80px;                      /* logo réduit */
+}
+
+.navbar.scrolled .site-title {
+  font-size: 2rem;                 /* titre réduit */
 }
 
 
-.site-title {
-  font-size: 3.5em;
-  font-weight: bold;
+/* --------- QUAND ON SCROLL ---------- */
+.navbar.scrolled {
+  background: rgba(0,0,0,0.5);     /* le fond semi-transparent */
+  backdrop-filter: blur(5px);      /* optionnel : verre dépoli */
+
+  padding: 4px 10px;               /* barre un peu plus fine */
+}
+/* Taille du logo */
+.navbar.scrolled .navbar-brand img {
+  height: 30px;    /* ajustez au besoin */
+}
+
+/* Taille des liens */
+.navbar.scrolled .nav-link {
+  font-size: 0.9rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.logo img {
-  height: 150px;
 }
 
 nav a {
@@ -154,27 +184,35 @@ nav {
 
 
 
+/* 1) on retire la hauteur fixe et le background */
 .hero {
   position: relative;
-  height: calc(100vw * 9 / 16); /* hauteur égale à ratio de l'image */
-  background:
-    url('../img/homeBackground.jpeg') no-repeat center top/cover;
-  display: flex;
-  align-items: flex-start;      /* texte à gauche */
-  justify-content: flex-start;  /* texte en haut */
-  padding: 190px 40px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-
+  overflow: hidden;
+  /* plus de height: calc(100vw * 9/16) ni de background */
 }
 
+/* Wrapper qui contient l’<img> et le texte */
+.hero-bg {
+  position: relative;
+}
 
+/* L’image prend 100% de la largeur et sa hauteur s’ajuste */
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
+/* Texte positionné par-dessus l’image */
 .hero-text {
-  max-width: 700px;
-  margin-top: 40px;      /* ajuste la hauteur manuellement */
-  margin-left: 10px;
-  text-align: left;
+  position: absolute;
+  top: 20%;    /* ajustez pour placer votre h1 où vous voulez */
+  left: 5%;
+  transform: translateY(-20%);
+  /* conservez votre text-shadow, couleurs, etc. */
 }
+
+
 
 .hero-text h1 {
   font-size: 3em;
@@ -188,19 +226,6 @@ nav {
 
 
 
-
-
-
-/* Cards */
-.experience-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 60px 20px;
-  background-color: #f4efe8;
-  color: #000;
-  text-align: center;
-}
 
 .card {
   background: #fff;
