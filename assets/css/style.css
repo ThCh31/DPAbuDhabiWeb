@@ -9,17 +9,21 @@ body, html {
   font-family: 'Tinos', 'Segoe UI', sans-serif;
   color: white;
   background-color: #f4efe8;
-
 }
 
-/* style.css */
 html {
   scroll-behavior: smooth;
 }
 
-/* Navbar */
 
-/* --------- ETAT INITIAL ---------- */
+
+
+
+
+
+
+
+/* --------- NAVBAR ---------- */
 .navbar {
   position: fixed;
   top: 0;
@@ -57,7 +61,6 @@ html {
   font-size: 2rem;                 /* titre réduit */
 }
 
-
 /* --------- QUAND ON SCROLL ---------- */
 .navbar.scrolled {
   background: rgba(0,0,0,0.5);     /* le fond semi-transparent */
@@ -65,6 +68,7 @@ html {
 
   padding: 4px 10px;               /* barre un peu plus fine */
 }
+
 /* Taille du logo */
 .navbar.scrolled .navbar-brand img {
   height: 30px;    /* ajustez au besoin */
@@ -157,7 +161,6 @@ nav {
   transform: translateY(0);
 }
 
-
 .dropdown-menu li {
   margin: 0;
   padding: 0;        /* s’assure qu’il n’y a pas de padding “invisible” */
@@ -184,49 +187,130 @@ nav {
 
 
 
-/* 1) on retire la hauteur fixe et le background */
+
+
+
+
+
+
+
+
+
+/* ========= HERO CONTAINER ========= */
 .hero {
   position: relative;
   overflow: hidden;
-  /* plus de height: calc(100vw * 9/16) ni de background */
+  /* plus de height ni de background */
 }
 
-/* Wrapper qui contient l’<img> et le texte */
+/* ========= IMAGE & WRAPPER ========= */
 .hero-bg {
   position: relative;
 }
 
-/* L’image prend 100% de la largeur et sa hauteur s’ajuste */
 .hero-img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* Texte positionné par-dessus l’image */
+/* ========= TEXTE SUR L’IMAGE ========= */
 .hero-text {
   position: absolute;
-  top: 20%;    /* ajustez pour placer votre h1 où vous voulez */
-  left: 5%;
-  transform: translateY(-20%);
-  /* conservez votre text-shadow, couleurs, etc. */
+  top: 20%;               /* ajustez la hauteur du texte */
+  left: 5%;               /* ajustez la marge gauche */
+
+  /* slide-in depuis la gauche + centrage vertical */
+  opacity: 0;
+  transform: translateX(-60px) translateY(-20%);
+
+  /* animation */
+  transition:
+    opacity 1.2s ease-out,
+    transform 1.2s ease-out;
 }
 
+/* État “après animation” */
+.hero-text.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(-20%);
+}
 
-
+/* ========= STYLES DU CONTENU ========= */
 .hero-text h1 {
   font-size: 3em;
   margin-bottom: 40px;
+  /* text-shadow, couleur… conservez vos réglages */
 }
-
 .hero-text p {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
 
 
+/* ================== ABOUT HERO ================== */
+.hero-base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;                                    /* toujours plein écran */
+  /* on lit la var CSS pour le fond */
+  background: var(--hero-bg) no-repeat center/cover;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Overlay sombre */
+.hero-base::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                             /* top/right/bottom/left = 0 */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* ====== HERO-TEXT : RESET DES CONFLITS ====== */
+.hero-base .hero-text {
+  /* Annule top/left hérités de la règle générique */
+  position: relative;
+  top: auto;
+  left: auto;
+  z-index: 2;                                           /* au-dessus de l’overlay */
+  text-align: center;
+  max-width: 800px;                                     /* pour limiter la largeur */
+  padding: 0 60px;                                      /* espace intérieur latéral */
+  /* slide-in depuis la gauche */
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 1.2s ease-out,
+  transform 1.2s ease-out;
+}
+
+.hero-base .hero-text.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ====== TYPOGRAPHIE ====== */
+.hero-base .hero-text h1 {
+  font-size: 3em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-base .hero-text p {
+  font-size: 1.2em;
+}
 
 
+
+
+
+
+
+
+/* ========= SECTION EXPERIENCE MAIN PAGE ========= */
 .card {
   background: #fff;
   border-radius: 10px;
@@ -242,7 +326,6 @@ nav {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
 
 .card img {
   width: 100%;
@@ -280,9 +363,6 @@ a.card:hover {
   transform: translateY(-8px) scale(1.1);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
-
-
 
 /* ==== EN-TÊTE FILTRES ==== */
 .experience-header {
@@ -360,8 +440,6 @@ a.card:hover {
   border-radius: 3px;
 }
 
-
-
 .experience-title {
   background-color: #f4efe8;
   color: #000;
@@ -374,92 +452,143 @@ a.card:hover {
   margin-left: 40px;
 }
 
-
-/* état initial : invisible et légèrement “décalé” */
-.section-anim {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+/* === Preview Events sur index.html === */
+.events-preview {
+  background-color: #f4efe8;   /* même beige doux */
+  padding: 40px 20px 60px;     /* haut/bas + respirations latérales */
+  margin: 0 auto;         /* espace sous le bloc */
+  max-width: none;
 }
 
-/* état final : visible et à sa place */
-.section-anim.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* On reprend la grille d’events */
+#events-preview .events-grid.preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
 }
 
-/* slide-in depuis la gauche */
-.section-in-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-.section-in-left.visible {
-  opacity: 1;
-  transform: translateX(0);
+/* Cartes identiques à events.html */
+#events-preview .event-card {
+  background: #fff;
+  color: #002d32;
+  border-radius: 10px;
+  padding: 16px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* slide-in depuis la droite */
-.section-in-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+/* Date, titre, texte */
+#events-preview .event-date {
+  font-weight: bold;
+  color: #cc6d3d;
+  margin-bottom: 8px;
 }
-.section-in-right.visible {
-  opacity: 1;
-  transform: translateX(0);
+#events-preview .event-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1em;
 }
-
-/* pour le texte du hero : slide depuis la gauche */
-.hero-text {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-.hero-text.visible {
-  opacity: 1;
-  transform: translateX(0);
+#events-preview .event-card p {
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.4;
 }
 
+/* Bouton centré */
+#events-preview .show-more-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+}
+
+/* === Preview Reviews sur index.html, sans boîte grise === */
+.reviews-preview {
+  background-color: #f4efe8;   /* même beige que .experience-title */
+  box-shadow: none;            /* on garde pas d’ombre particulière */
+  padding: 30px 40px;          /* 60px haut/bas, 40px gauche/droite pour respirer */
+  margin: 0 auto;
+  max-width: none;             /* s’étend sur toute la largeur disponible */
+}
+
+/* On réutilise la grid existante, mais on la cible via le nouvel ID */
+#reviews-cards-preview .reviews-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Centrage du bouton sous les 3 cartes */
+#reviews-cards-preview .show-more-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+}
+
+/* Enfin, on garde l’alignement gauche du titre */
+#reviews-preview h2 {
+  margin-left: 40px;
+}
+
+/* === Preview Gallery sur index.html === */
+.gallery-preview {
+  background-color: #f4efe8;   /* même beige que vos sections */
+  box-shadow: none;
+  padding: 30px 40px;          /* 30px haut/bas, 40px gauche/droite */
+  margin: 0 auto;      /* décale un peu sous le titre et espace sous le bouton */
+  max-width: none;
+}
+
+/* grille fixe à 3 miniatures côte à côte */
+#gallery-preview .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* adapte les miniatures à la grille */
+#gallery-preview .gallery-item {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+#gallery-preview .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* bouton centré sous les miniatures */
+#gallery-preview .show-more-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+}
+
+
+/* Centre automatiquement tous les .show-more-btn */
+.show-more-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0;
+}
 
 
 
-/* === Styles spécifiques à la page About Us === */
+
+
+
+
+
+
+/*====== ABOUT US ======== */
 .about-hero {
-  position: relative;
-  height: calc(90vw * 9 / 16);
-  background: url('../img/homeBackground.jpeg') no-repeat top /cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  padding: 80px 60px;
-  color: #fff;
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/homeBackground.jpeg');
 }
-
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);  /* assombrit l’image de fond */
-  z-index: 2;
-}
-
-.about-hero .hero-text {
-  position: relative;
-  z-index: 2;               /* place le texte au-dessus de l’overlay */
-  font-size: 1.2em;
-}
-.about-hero .hero-text h1 {
-  font-size: 3em;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-.about-hero .hero-text p {
-  font-size: 1.2em;
-}
-
 /* Conteneur principal */
 .about-main {
   display: flex;
@@ -540,14 +669,55 @@ a.logo:focus {
 
 
 
+
+
+
+
+
+
+
+
+/* ======= CONTACT US ======*/
+.contact-hero {
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/homeBackground.jpeg');
+}
+
+
+
+
+
+
+
+
+
+/* ======= BLOGS ======*/
+.blogs-hero {
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/homeBackground.jpeg');
+}
+
+
+
+
+
+
+
+
+
+
+
 /* === Page Reviews === */
+.reviews-hero {
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/homeBackground.jpeg');
+}
+
 .reviews-main {
   display: flex;
   flex-direction: column;
   padding-bottom: 40px;
-
 }
-
 
 /* Grille de cartes */
 .reviews-cards {
@@ -600,38 +770,24 @@ a.logo:focus {
 
 
 
-/* === Preview Reviews sur index.html, sans boîte grise === */
-.reviews-preview {
-  background-color: #f4efe8;   /* même beige que .experience-title */
-  box-shadow: none;            /* on garde pas d’ombre particulière */
-  padding: 30px 40px;          /* 60px haut/bas, 40px gauche/droite pour respirer */
-  margin: 0 auto;
-  max-width: none;             /* s’étend sur toute la largeur disponible */
-}
 
-/* On réutilise la grid existante, mais on la cible via le nouvel ID */
-#reviews-cards-preview .reviews-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
 
-/* Centrage du bouton sous les 3 cartes */
-#reviews-cards-preview .show-more-btn {
-  display: block;
-  width: fit-content;
-  margin: 30px auto 0;
-}
 
-/* Enfin, on garde l’alignement gauche du titre */
-#reviews-preview h2 {
-  margin-left: 40px;
-}
+
+
+
+
+
+
 
 
 
 /* === Page Gallery === */
+.gallery-hero {
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/homeBackground.jpeg');
+}
+
 /* Fond et paddings cohérents avec les autres pages */
 .gallery-main {
   background-color: #f4efe8;
@@ -725,57 +881,24 @@ a.logo:focus {
 }
 
 
-/* === Preview Gallery sur index.html === */
-.gallery-preview {
-  background-color: #f4efe8;   /* même beige que vos sections */
-  box-shadow: none;
-  padding: 30px 40px;          /* 30px haut/bas, 40px gauche/droite */
-  margin: 0 auto;      /* décale un peu sous le titre et espace sous le bouton */
-  max-width: none;
-}
-
-/* grille fixe à 3 miniatures côte à côte */
-#gallery-preview .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 20px;
-}
-
-/* adapte les miniatures à la grille */
-#gallery-preview .gallery-item {
-  width: 100%;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-#gallery-preview .gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* bouton centré sous les miniatures */
-#gallery-preview .show-more-btn {
-  display: block;
-  width: fit-content;
-  margin: 30px auto 0;
-}
 
 
-/* Centre automatiquement tous les .show-more-btn */
-.show-more-btn {
-  display: block;
-  width: fit-content;
-  margin: 30px auto 0;
-}
+
+
+
+
+
+
 
 
 
 
 /* === Page Events === */
+.events-hero {
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/homeBackground.jpeg');
+}
+
 .events-main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -840,100 +963,22 @@ a.logo:focus {
   color: #002d32;
 }
 
-/* Entrée animée (avec homePageAnimation.js) */
-.section-anim { opacity: 0; transform: translateY(40px); transition: opacity 1s ease-out, transform 1s ease-out; }
-.section-in-left { opacity: 0; transform: translateX(-40px); transition: opacity 1s ease-out, transform 1s ease-out; }
-.section-in-right { opacity: 0; transform: translateX(40px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
-.section-anim.visible,
-.section-in-left.visible,
-.section-in-right.visible {
-  opacity: 1; transform: translate(0);
-}
 
 
 
-/* === Preview Events sur index.html === */
-.events-preview {
-  background-color: #f4efe8;   /* même beige doux */
-  padding: 40px 20px 60px;     /* haut/bas + respirations latérales */
-  margin: 0 auto;         /* espace sous le bloc */
-  max-width: none;
-}
 
-/* On reprend la grille d’events */
-#events-preview .events-grid.preview {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 20px;
-}
 
-/* Cartes identiques à events.html */
-#events-preview .event-card {
-  background: #fff;
-  color: #002d32;
-  border-radius: 10px;
-  padding: 16px 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
 
-/* Date, titre, texte */
-#events-preview .event-date {
-  font-weight: bold;
-  color: #cc6d3d;
-  margin-bottom: 8px;
-}
-#events-preview .event-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.1em;
-}
-#events-preview .event-card p {
-  margin: 0;
-  font-size: 0.95em;
-  line-height: 1.4;
-}
 
-/* Bouton centré */
-#events-preview .show-more-btn {
-  display: block;
-  width: fit-content;
-  margin: 30px auto 0;
-}
+
 
 
 
 /* === Page Produit: Wellness & Mindfulness Retreat === */
-
-/* Hero spécifique produit (calqué sur .about-hero) */
 .product-hero {
-  position: relative;
-  height: 100vh;
-  background: url('../img/package/wellness&mindullRetreat.png') no-repeat center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-}
-.product-hero::before {
-  content: "";
-  position: absolute;
-  top:0;left:0;right:0;bottom:0;
-  background: rgba(0,0,0,0.4);
-  z-index:1;
-}
-.product-hero .hero-text {
-  position: relative;
-  z-index:2;
-  text-align:center;
-}
-.product-hero .hero-text h1 {
-  font-size: 2.8em;
-  margin-bottom: 0.2em;
-}
-.product-hero .hero-text p {
-  font-size: 1.2em;
-}
+   /* on charge l’image spécifique via une variable CSS */
+   --hero-bg: url('../img/package/wellness&mindullRetreat.png');
+ }
 
 /* Conteneur principal */
 .product-main {
@@ -1027,4 +1072,54 @@ a.logo:focus {
 .product-main h2 {
   font-size: 2.4em;   /* ou la valeur qui vous convient (2em, 2.5em...) */
   margin-bottom: 0.6em;
+}
+
+
+
+
+
+/* ======== ANIMATIONS ========*/
+/* état initial : invisible et légèrement “décalé” */
+.section-anim {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* état final : visible et à sa place */
+.section-anim.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* slide-in depuis la gauche */
+.section-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.section-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* slide-in depuis la droite */
+.section-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+.section-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Entrée animée (avec homePageAnimation.js) */
+.section-anim { opacity: 0; transform: translateY(40px); transition: opacity 1s ease-out, transform 1s ease-out; }
+.section-in-left { opacity: 0; transform: translateX(-40px); transition: opacity 1s ease-out, transform 1s ease-out; }
+.section-in-right { opacity: 0; transform: translateX(40px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
+.section-anim.visible,
+.section-in-left.visible,
+.section-in-right.visible {
+  opacity: 1; transform: translate(0);
 }

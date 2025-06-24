@@ -101,3 +101,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
+document
+  .querySelectorAll('.hero-base .hero-text')
+  .forEach(el => el.classList.add('visible'));
