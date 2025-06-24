@@ -300,7 +300,7 @@ nav {
 }
 
 .hero-base .hero-text p {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 
@@ -680,7 +680,7 @@ a.logo:focus {
 /* ======= CONTACT US ======*/
 .contact-hero {
   /* on charge l’image spécifique via une variable CSS */
-  --hero-bg: url('../img/homeBackground.jpeg');
+  --hero-bg: url('../img/gallery/photo21.jpeg');
 }
 
 
