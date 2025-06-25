@@ -15,7 +15,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* famille principale pour le corps, secondaire pour les titres */
+/* FOND FOR THE TITLE AND CORPS */
 body, html {
   font-family: 'Tinos', serif;
 }
@@ -39,46 +39,46 @@ h2, .site-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;              /* hauteur “normale” */
-  background: transparent;         /* ← plus de fond gris */
+  padding: 20px 40px;              /* normal height” */
+  background: transparent;
   transition:
-    background 0.3s ease,         /* fond qui apparaît en douceur */
-    padding 0.3s ease;             /* réduire en douceur la hauteur */
+    background 0.3s ease,         /* transition for the black background */
+    padding 0.3s ease;             /* reduce the height */
   z-index: 999;
 }
 
 /* --- ÉTAT INITIAL --- */
 .navbar .logo img {
-  height: 150px;                      /* taille “normale” du logo */
-  transition: height 0.3s ease;      /* transition douce */
+  height: 150px;                      /* normal height of the logo */
+  transition: height 0.3s ease;      /* smooth transition */
 }
 
 .navbar .site-title {
-  font-size: 3.5rem;                   /* taille “normale” du titre */
+  font-size: 3.5rem;
   font-weight: bold;
-  transition: font-size 0.3s ease;   /* transition douce */
+  transition: font-size 0.3s ease;
 }
 
 /* --- QUAND ON A SCROLLÉ --- */
 .navbar.scrolled .logo img {
-  height: 80px;                      /* logo réduit */
+  height: 80px;                      /* reduced logo */
 }
 
 .navbar.scrolled .site-title {
-  font-size: 2rem;                 /* titre réduit */
+  font-size: 2rem;                 /* reduced title */
 }
 
 /* --------- QUAND ON SCROLL ---------- */
 .navbar.scrolled {
-  background: rgba(0,0,0,0.5);     /* le fond semi-transparent */
-  backdrop-filter: blur(5px);      /* optionnel : verre dépoli */
+  background: rgba(0,0,0,0.5);     /* semi-transparent background */
+  backdrop-filter: blur(5px);      /* option: add a blur */
 
-  padding: 4px 10px;               /* barre un peu plus fine */
+  padding: 4px 10px;               /* thinner bar */
 }
 
 /* Taille du logo */
 .navbar.scrolled .navbar-brand img {
-  height: 30px;    /* ajustez au besoin */
+  height: 30px;    /* adjusted if needed */
 }
 
 /* Taille des liens */
@@ -102,15 +102,15 @@ nav a {
 
 /* ===== MENU HAMBURGER + DROPDOWN ===== */
 nav {
-  position: relative;        /* pour le dropdown absolu */
-  display: flex;             /* transforme nav en flex container */
-  align-items: center;       /* aligne tout verticalement centré */
-  gap: 25px;                 /* espace homogène entre tous les items */
+  position: relative;        /* absolute dropdown  */
+  display: flex;             /* transform nav in a flex container */
+  align-items: center;
+  gap: 25px;
 }
 
 .dropdown {
   position: relative;
-  margin-left: 25px; /* espace depuis Gallery */
+  margin-left: 25px;
   margin-right: 35px;
 }
 
@@ -133,7 +133,7 @@ nav {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* animation pour croix quand ouvert */
+/* transform hamburger in cross when open */
 .dropdown.open .hamburger span:nth-child(1) {
   transform: translateY(7.5px) rotate(45deg);
 }
@@ -144,7 +144,7 @@ nav {
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* menu déroulant */
+/* dropdown menu */
 .dropdown-menu {
   min-width: 100px;
   position: absolute;
@@ -170,10 +170,10 @@ nav {
 
 .dropdown-menu li {
   margin: 0;
-  padding: 0;        /* s’assure qu’il n’y a pas de padding “invisible” */
+  padding: 0;
 }
 
-/* style des items */
+/* items style */
 .dropdown-menu li a {
   white-space: nowrap;
   text-align: left;
@@ -207,7 +207,6 @@ nav {
 .hero {
   position: relative;
   overflow: hidden;
-  /* plus de height ni de background */
 }
 
 /* ========= IMAGE & WRAPPER ========= */
@@ -221,13 +220,11 @@ nav {
   height: auto;
 }
 
-/* ========= TEXTE SUR L’IMAGE ========= */
+/* ========= TEXT ON THE IMAGE ========= */
 .hero-text {
   position: absolute;
-  top: 20%;               /* ajustez la hauteur du texte */
-  left: 5%;               /* ajustez la marge gauche */
-
-  /* slide-in depuis la gauche + centrage vertical */
+  top: 20%;               /* adjust the height of the text */
+  left: 5%;               /* adjust the left margin */
   opacity: 0;
   transform: translateX(-60px) translateY(-20%);
 
@@ -237,17 +234,16 @@ nav {
     transform 1.2s ease-out;
 }
 
-/* État “après animation” */
+/* State "after animation" */
 .hero-text.visible {
   opacity: 1;
   transform: translateX(0) translateY(-20%);
 }
 
-/* ========= STYLES DU CONTENU ========= */
+/* ========= STYLES OF CONTENT ========= */
 .hero-text h1 {
   font-size: 3em;
   margin-bottom: 40px;
-  /* text-shadow, couleur… conservez vos réglages */
 }
 .hero-text p {
   font-size: 1.5em;
@@ -261,8 +257,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;                                    /* toujours plein écran */
-  /* on lit la var CSS pour le fond */
+  min-height: 100vh;                                    /* FULL SCREEN */
+  /* WE READ THE SPECIFIC CSS VARIABLE FOR THE IMAGE BACKGROUND */
   background: var(--hero-bg) no-repeat center/cover;
   overflow: hidden;
   color: #fff;
@@ -279,15 +275,14 @@ nav {
 
 /* ====== HERO-TEXT : RESET DES CONFLITS ====== */
 .hero-base .hero-text {
-  /* Annule top/left hérités de la règle générique */
+  /* Cancel top/left from the generic rule */
   position: relative;
   top: auto;
   left: auto;
-  z-index: 2;                                           /* au-dessus de l’overlay */
+  z-index: 2;                                           /* above the overlay */
   text-align: center;
-  max-width: 800px;                                     /* pour limiter la largeur */
-  padding: 0 60px;                                      /* espace intérieur latéral */
-  /* slide-in depuis la gauche */
+  max-width: 800px;
+  padding: 0 60px;                                      /* inside lateral space */
   opacity: 0;
   transform: translateX(-60px);
   transition: opacity 1.2s ease-out,
@@ -317,14 +312,13 @@ nav {
 
 
 
-/* ========= SECTION EXPERIENCE MAIN PAGE ========= */
+/* ========= EXPERIENE SECTION MAIN PAGE ========= */
 .card {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   width: 300px;
-  /* on rend la transition un peu plus douce */
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   position: relative;
 }
@@ -352,20 +346,19 @@ nav {
 }
 .card-text h3 {
   margin: 0;
-  color: #fff;        /* titre en blanc */
+  color: #fff;
   font-size: 1.2em;
 }
 
-/* === rendre la carte entière cliquable sans déco de lien === */
+/* === make the entire card clickable without link decoration === */
 a.card {
   display: flex;
   flex-direction: column;
-  text-decoration: none;  /* on vire le souligné */
-  color: inherit;         /* on garde la couleur du titre */
+  text-decoration: none;
+  color: inherit;
   position: relative;
 }
 
-/* on conserve l’effet hover sur la carte */
 a.card:hover {
   transform: translateY(-8px) scale(1.1);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -406,7 +399,7 @@ a.card:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 
-/* caché des cartes non-séléctionnées */
+/* Hidding not chesen cards */
 .hidden {
   display: none !important;
 }
@@ -414,28 +407,27 @@ a.card:hover {
 /* 1) Flex et overflow-x */
 .experience-cards {
   display: flex;
-  flex-wrap: nowrap;          /* ne pas replier les cartes sur plusieurs lignes */
+  flex-wrap: nowrap;          /* all the cards on the same line */
   justify-content: center;
-  overflow-x: auto;           /* activer le scroll horizontal */
-  gap: 20px;                  /* espace uniforme entre les cartes */
+  overflow-x: auto;           /* activate horizontal scroll */
+  gap: 20px;                  /* same horizontal space between the cards */
   padding: 60px 20px 30px 20px;       /* top 60px / left 20px / bottom 10px / right 20px */
-  scroll-behavior: smooth;    /* scroll « doux » au clic sur les flèches ou nav touche */
-  /* décale le point de “snap” pour qu’il prenne en compte le padding */
+  scroll-behavior: smooth;
   scroll-padding-left: 20px;
   scroll-padding-right: 20px;
 }
 
-/* 2) Chaque carte reste à sa largeur fixe */
+
 .experience-cards .card {
-  flex: 0 0 auto;             /* ne pas shrink ni grow */
-  scroll-snap-align: start;   /* début de chaque carte aligné */
+  flex: 0 0 auto;             /* no shrink nor grow */
+  scroll-snap-align: start;
 }
-/* Lorsque le conteneur déborde, on switch en alignement à gauche */
+/* When the container overflow, we switch to left alignement */
 .experience-cards.scrollable {
   justify-content: flex-start;
 }
 
-/* 3) Customisation de la scrollbar (WebKit) */
+
 .experience-cards::-webkit-scrollbar {
   height: 6px;
 }
@@ -461,13 +453,13 @@ a.card:hover {
 
 /* === Preview Events sur index.html === */
 .events-preview {
-  background-color: #f4efe8;   /* même beige doux */
-  padding: 40px 20px 60px;     /* haut/bas + respirations latérales */
-  margin: 0 auto;         /* espace sous le bloc */
+  background-color: #f4efe8;   /* same beige background */
+  padding: 40px 20px 60px;     /* top/bottom + lateral space */
+  margin: 0 auto;         /* space on the bottom of the bloc */
   max-width: none;
 }
 
-/* On reprend la grille d’events */
+/* same event grid */
 #events-preview .events-grid.preview {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -475,7 +467,7 @@ a.card:hover {
   margin-top: 20px;
 }
 
-/* Cartes identiques à events.html */
+/* same cards as events.html */
 #events-preview .event-card {
   background: #fff;
   color: #002d32;
@@ -484,7 +476,7 @@ a.card:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Date, titre, texte */
+/* Date, title, text */
 #events-preview .event-date {
   font-weight: bold;
   color: #cc6d3d;
@@ -500,23 +492,23 @@ a.card:hover {
   line-height: 1.4;
 }
 
-/* Bouton centré */
+/* Centered button */
 #events-preview .show-more-btn {
   display: block;
   width: fit-content;
   margin: 30px auto 0;
 }
 
-/* === Preview Reviews sur index.html, sans boîte grise === */
+/* === Preview Reviews on index.html, without grey boxes === */
 .reviews-preview {
-  background-color: #f4efe8;   /* même beige que .experience-title */
-  box-shadow: none;            /* on garde pas d’ombre particulière */
-  padding: 30px 40px;          /* 60px haut/bas, 40px gauche/droite pour respirer */
+  background-color: #f4efe8;   /* same beige as .experience-title */
+  box-shadow: none;            /* no shadow  */
+  padding: 30px 40px;          /* 60px top/bottom, 40px left/right to breathe */
   margin: 0 auto;
-  max-width: none;             /* s’étend sur toute la largeur disponible */
+  max-width: none;
 }
 
-/* On réutilise la grid existante, mais on la cible via le nouvel ID */
+/* We keep the existing grid but target it with a new ID */
 #reviews-cards-preview .reviews-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -524,28 +516,28 @@ a.card:hover {
   margin-top: 20px;
 }
 
-/* Centrage du bouton sous les 3 cartes */
+/* Centering of the button bellow the 3 cards */
 #reviews-cards-preview .show-more-btn {
   display: block;
   width: fit-content;
   margin: 30px auto 0;
 }
 
-/* Enfin, on garde l’alignement gauche du titre */
+/* keep the left alignement of the title */
 #reviews-preview h2 {
   margin-left: 40px;
 }
 
-/* === Preview Gallery sur index.html === */
+/* === Preview Gallery on index.html === */
 .gallery-preview {
-  background-color: #f4efe8;   /* même beige que vos sections */
+  background-color: #f4efe8;
   box-shadow: none;
-  padding: 30px 40px;          /* 30px haut/bas, 40px gauche/droite */
-  margin: 0 auto;      /* décale un peu sous le titre et espace sous le bouton */
+  padding: 30px 40px;
+  margin: 0 auto;
   max-width: none;
 }
 
-/* grille fixe à 3 miniatures côte à côte */
+
 #gallery-preview .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -553,7 +545,7 @@ a.card:hover {
   margin-top: 20px;
 }
 
-/* adapte les miniatures à la grille */
+/* fits thumbnails to grid */
 #gallery-preview .gallery-item {
   width: 100%;
   aspect-ratio: 4/3;
@@ -567,8 +559,8 @@ a.card:hover {
   object-fit: cover;
   display: block;
 }
-
-/* bouton centré sous les miniatures */
+ ca
+/* button centered under the thumbnails */
 #gallery-preview .show-more-btn {
   display: block;
   width: fit-content;
@@ -576,7 +568,7 @@ a.card:hover {
 }
 
 
-/* Centre automatiquement tous les .show-more-btn */
+/* Automatically centers all .show-more-btn */
 .show-more-btn {
   display: block;
   width: fit-content;
@@ -600,10 +592,10 @@ a.card:hover {
 
 /*====== ABOUT US ======== */
 .about-hero {
-  /* on charge l’image spécifique via une variable CSS */
+  /* Loading the chosen background image */
   --hero-bg: url('../img/homeBackground.jpeg');
 }
-/* Conteneur principal */
+/* Main content */
 .about-main {
   display: flex;
   flex-direction: column;
@@ -620,18 +612,18 @@ a.card:hover {
     "who   offer"
     "why   vision"
     "meet  meet";
-  gap: 80px;               /* espace entre les blocs */
-  padding: 40px 20px;      /* marge autour du grid */
+  gap: 80px;               /* space between the blocs */
+  padding: 40px 20px;
 }
 
-/* Placement des sections dans la grille */
+/* Placing sections in the grid */
 .section-who    { grid-area: who; }
 .section-offer  { grid-area: offer; }
 .section-why    { grid-area: why; }
 .section-vision { grid-area: vision; }
 .section-meet   { grid-area: meet; }
 
-/* Responsive : empilement sur mobile */
+/* Responsive: stacking on mobile */
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -646,12 +638,11 @@ a.card:hover {
   }
 }
 
-/* ——————— 2) SECTIONS DE CONTENU ——————— */
+/* ——————— 2) CONTENT SECTION ——————— */
 .content-section {
-  /* On retire le margin-auto (géré par le gap du grid) */
   margin: 0;
   max-width: 900px;
-  padding: 60px 40px;                    /* respiration interne */
+  padding: 60px 40px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.05);
@@ -659,13 +650,13 @@ a.card:hover {
   position: relative;
 }
 
-/* Micro-interaction au survol */
+
 .content-section:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 36px rgba(0,0,0,0.08);
 }
 
-/* —————— 3) TITRES & ACCENTS —————— */
+/* —————— 3) TITLE & ACCENTS —————— */
 .content-section h2 {
   font-size: 2.4em;
   margin-bottom: 24px;
@@ -682,7 +673,7 @@ a.card:hover {
   border-radius: 2px;
 }
 
-/* ————— 4) PARAGRAPHES & LISTES ————— */
+/* ————— 4) PARAGRAPHS & LISTS ————— */
 .content-section p {
   font-size: 1.15em;
   line-height: 1.8;
@@ -713,7 +704,7 @@ a.card:hover {
   line-height: 1;
 }
 
-/* ————— 5) BLOCKQUOTE STYLÉ ————— */
+/* ————— 5) STYLISH BLOCKQUOTE ————— */
 .content-section blockquote {
   font-style: italic;
   border-left: 4px solid #cc6d3d;
@@ -723,11 +714,7 @@ a.card:hover {
 }
 
 
-
-
-
-
-/* Boutons d’appel à l’action */
+/* Call to action buttons */
 .cta-buttons {
   display: flex;
   justify-content: center;
@@ -789,18 +776,18 @@ a.card:hover {
   color: inherit;
 }
 
-/* Désactive le style de lien sur le logo */
+/* Disables the link style on the logo */
 a.logo {
-  text-decoration: none; /* pas de souligné */
-  color: inherit;        /* garde la même couleur que le parent */
+  text-decoration: none; /* no underlying */
+  color: inherit;        /* keep the same color as the parent */
 }
 
 a.logo:hover,
 a.logo:focus {
   text-decoration: none;
   color: inherit;
-  outline: none;         /* supprime le contour au focus, si tu veux */
-  cursor: pointer;       /* conserve le curseur main */
+  outline: none;
+  cursor: pointer;       /* keep the hand cursor */
 }
 
 
@@ -815,7 +802,6 @@ a.logo:focus {
 
 /* ======= CONTACT US ======*/
 .contact-hero {
-  /* on charge l’image spécifique via une variable CSS */
   --hero-bg: url('../img/gallery/photo21.jpeg');
 }
 /* ———————— CONTACT PAGE GRID ———————— */
@@ -824,35 +810,35 @@ a.logo:focus {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  gap: 40px;               /* espace entre boîtes */
-  padding: 60px 20px;      /* marge autour du grid */
+  gap: 40px;               /* spaces between the boxes */
+  padding: 60px 20px;
 }
 
 /* 1.1) General & Booking full width */
 .section-general,
 .section-booking {
-  grid-column: 1 / -1;     /* occupe 2 colonnes */
-}
-/* Centrer horizontalement et verticalement le texte de la section “Quick Note” */
-.section-note {
-  display: flex;             /* transforme la boîte en flex container */
-  flex-direction: column;    /* empile les enfants (ici juste du texte) en colonne */
-  justify-content: center;   /* centre verticalement */
-  align-items: center;       /* centre horizontalement */
-  text-align: center;        /* pour que les paragraphes soient bien centrés */
+  grid-column: 1 / -1;     /* occupies 2 columns */
 }
 
-/* —————— 2) TAILLE ET ESPACEMENTS DES BOÎTES —————— */
+.section-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* —————— 2) BOX SIZE AND SPACING —————— */
 .content-section {
-  margin: 0;               /* géré par le gap */
-  padding: 50px 40px;      /* plus compact qu’avant */
+  margin: 0;
+  padding: 50px 40px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* micro-hover plus subtil */
+/* micro-hover more subtil */
 .content-section:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -874,7 +860,7 @@ a.logo:focus {
   border-radius: 2px;
 }
 
-/* paragraphes un peu plus compacts */
+
 .content-section p,
 .content-section ul {
   margin-bottom: 20px;
@@ -895,7 +881,7 @@ a.logo:focus {
     padding: 30px 10px;
     gap: 30px;
   }
-  /* plus de full-width sur mobile */
+  /* no more full-width on mobile */
   .section-general,
   .section-booking {
     grid-column: auto;
@@ -917,7 +903,6 @@ a.logo:focus {
 
 /* ======= BLOGS ======*/
 .blogs-hero {
-  /* on charge l’image spécifique via une variable CSS */
   --hero-bg: url('../img/homeBackground.jpeg');
 }
 
@@ -931,9 +916,8 @@ a.logo:focus {
 
 
 
-/* === Page Reviews === */
+/* === REVIEWS PAGE === */
 .reviews-hero {
-  /* on charge l’image spécifique via une variable CSS */
   --hero-bg: url('../img/homeBackground.jpeg');
 }
 
@@ -943,7 +927,7 @@ a.logo:focus {
   padding-bottom: 40px;
 }
 
-/* Grille de cartes */
+/* Map grid */
 .reviews-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -951,7 +935,7 @@ a.logo:focus {
   margin-top: 20px;
 }
 
-/* Carte individuelle */
+/* Individual card */
 .review-card {
   background: #fff;
   color: #002d32;
@@ -963,20 +947,20 @@ a.logo:focus {
   gap: 10px;
 }
 
-/* Nom du reviewer */
+/* Reviewer Name */
 .reviewer-name {
   font-size: 1.2em;
   font-weight: bold;
   margin: 0;
 }
 
-/* Étoiles */
+/* Stars */
 .review-stars {
   font-size: 1.1em;
-  color: #cc6d3d;   /* même couleur que le bouton */
+  color: #cc6d3d;   /* Same color as the button */
 }
 
-/* Texte du commentaire */
+/* Text of the commentary */
 .review-text {
   font-size: 1em;
   line-height: 1.5;
@@ -984,9 +968,9 @@ a.logo:focus {
   margin: 0;
 }
 
-/* Étendre la section Reviews pour utiliser plus de largeur */
+
 .reviews-main .content-section {
-  max-width: 1400px;    /* au lieu de 900px par défaut */
+  max-width: 1400px;
   width: 100%;
   margin: 40px auto;
   padding: 60px 20px;
@@ -1006,19 +990,19 @@ a.logo:focus {
 
 
 
-/* === Page Gallery === */
+/* === GALLERY PAGE === */
 .gallery-hero {
-  /* on charge l’image spécifique via une variable CSS */
+
   --hero-bg: url('../img/homeBackground.jpeg');
 }
 
-/* Fond et paddings cohérents avec les autres pages */
+
 .gallery-main {
   background-color: #f4efe8;
   padding: 60px 20px 80px;
 }
 
-/* Wrapper centré, alignement du <h2> */
+
 .gallery-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -1033,25 +1017,24 @@ a.logo:focus {
 
 /* === Masonry-style Gallery === */
 .gallery-grid {
-  /* 3 colonnes sur desktop, ajustez parenthèses et media-queries plus bas */
   column-count: 3;
   column-gap: 16px;
-  margin: 30px 40px 0; /* espace top + padding horizontal */
+  margin: 30px 40px 0;
 }
 
-/* Chaque item devient un bloc inline dans la colonne */
+/* Each item becomes an inline block in the column */
 .gallery-item {
   display: inline-block;
   width: 100%;
-  margin-bottom: 16px; /* espacement vertical entre items */
-  break-inside: avoid; /* éviter la coupure d’image entre colonnes */
+  margin-bottom: 16px;
+  break-inside: avoid; /* avoid image breakage between columns */
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* L’image garde son ratio naturel */
+/* The image keeps its natural ratio*/
 .gallery-item img {
   width: 100%;
   height: auto;
@@ -1059,27 +1042,27 @@ a.logo:focus {
   object-fit: cover;
 }
 
-/* Effet hover toujours actif */
+/* Hover effect always active */
 .gallery-item:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-/* == Responsivité == */
-/* 2 colonnes sous 1024px */
+/* == Responsivity == */
+/* 2 columns under 1024px */
 @media (max-width: 1024px) {
   .gallery-grid {
     column-count: 2;
   }
 }
-/* 1 colonne sous 600px */
+/* 1 column under 600px */
 @media (max-width: 600px) {
   .gallery-grid {
     column-count: 1;
   }
 }
 
-/* Image adaptée */
+/* Adapted image */
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -1087,13 +1070,13 @@ a.logo:focus {
   display: block;
 }
 
-/* Zoom / ombre au hover */
+/* Zoom / hover shadow */
 .gallery-item:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-/* Optionnel : animation d’entrée au scroll (avec homePageAnimation.js) */
+/* Optional: scroll entry animation (with homePageAnimation.js) */
 .gallery-item.section-anim {
   opacity: 0;
   transform: translateY(30px);

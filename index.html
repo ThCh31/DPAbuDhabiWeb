@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abu Dhabi Recharge</title>
-    <!-- 1) Pré-connexion pour gagner en perf -->
+    <!-- 1) Pre-connexion to reduce loading time -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- 2) Chargement de Montserrat (poids 400 et 700, ajuste selon tes besoins) -->
+    <!-- 2) Loading of Montserrat (weight 400 and 700) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap"
       rel="stylesheet">
@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <!-- NAVBAR SEULE -->
+
+    <!-- NAVBAR -->
     <header>
       <div class="navbar">
         <a href="index.html" class="logo section-in-right">
@@ -32,7 +33,7 @@
           <a href="index.html#Experiences">Experiences</a>
           <a href="index.html#Events">Events</a>
           <a href="index.html#Gallery">Gallery</a>
-          <!-- ➜ hamburger dropdown -->
+          <!-- hamburger dropdown -->
           <div class="dropdown">
             <button class="hamburger" aria-label="Menu">
               <span></span><span></span><span></span>
@@ -52,11 +53,10 @@
       </div>
     </header>
 
-    <!-- SECTION AVEC IMAGE DE FOND -->
-    <!-- SECTION AVEC IMAGE EN <img> -->
+    <!-- SECTION WITH BACKGROUND IMAGE -->
     <section class="hero section-anim">
       <div class="hero-bg">
-        <!-- Image en balise pour qu’elle garde sa hauteur naturelle -->
+        <!-- IMAGE IN A BALISE SO IT CAN KEEP ALL IT'S LENGTH -->
         <img
           src="assets/img/testBackground3.jpeg"
           alt="Hero Background"
@@ -76,7 +76,7 @@
 
 
 
-    <!-- TITRE DES EXPERIENCES -->
+    <!-- EXPERIENCE TITLE AND FILTERS -->
     <section id="Experiences" class="experience-title section-in-left">
       <div class="experience-header">
         <h2>Packages</h2>
@@ -92,7 +92,7 @@
     </section>
 
 
-    <!-- LES CARTES -->
+    <!-- CARDS SECTION-->
     <section class="experience-cards section-in-right">
 
 
@@ -170,12 +170,11 @@
     </section>
 
 
-    <!-- events -->
+    <!-- EVENTS PREVIEWS SECTION -->
     <section id="Events" class="experience-title section-in-left">
       <h2>Events</h2>
     </section>
 
-    <!-- Preview des prochains Events -->
     <section id="events-preview" class="section-in-right events-preview">
 
       <div class="events-grid preview">
@@ -207,10 +206,10 @@
       <h2>Gallery</h2>
     </section>
 
-    <!-- Preview de la Gallery, comme sur Reviews -->
+
     <section id="gallery-preview" class="section-in-right gallery-preview">
       <div class="gallery-grid preview">
-        <!-- Prenez ici 3 ou 4 miniatures de votre dossier assets/img/gallery/ -->
+        <!-- CHOOSE HERE SOME PICTURES FROM THE GALLERY/ -->
         <div class="gallery-item"><img src="assets/img/gallery/photo1.jpg" alt="Photo 1"></div>
         <div class="gallery-item"><img src="assets/img/gallery/photo2.jpg" alt="Photo 2"></div>
         <div class="gallery-item"><img src="assets/img/gallery/photo3.jpg" alt="Photo 3"></div>
@@ -219,12 +218,11 @@
     </section>
 
 
-    <!-- Titre Blog (aligné avec les autres) -->
+    <!-- BLOG PREVIEW SECTIONS -->
     <section id="blog-preview" class="experience-title section-in-left">
       <h2>Blogs</h2>
     </section>
 
-    <!-- Preview des Blogs -->
     <section id="blog-cards-preview" class="section-in-right reviews-preview">
       <div class="reviews-cards">
         <!-- 1er post -->
@@ -250,12 +248,12 @@
     </section>
 
 
-    <!-- Titre Reviews (aligné avec les autres) -->
+    <!-- REVIEWS PREVIEW SECTIONS -->
     <section id="reviews-preview" class="experience-title section-in-left">
       <h2>Reviews</h2>
     </section>
 
-    <!-- Preview des 3 Reviews, sans content-section -->
+
     <section id="reviews-cards-preview" class="section-in-right reviews-preview">
       <div class="reviews-cards">
         <!-- 1er avis -->
