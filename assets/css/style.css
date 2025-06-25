@@ -130,31 +130,60 @@ nav a {
 /*-------------------------------
    RESPONSIVE : MOBILE (<576px)
 -------------------------------*/
+/*----------------------------------------
+   MOBILE : améliorations nav / titre
+----------------------------------------*/
 @media screen and (max-width: 576px) {
+  /* Navbar toujours opaque pour dissocier du contenu */
   .navbar {
-    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.6) !important;
+    padding: 8px 12px;
   }
+
+  /* Logo */
   .navbar .logo img {
     height: 100px;
   }
-  .navbar .site-title {
-    font-size: 2.2rem;
-  }
-  nav a {
-    margin-left: 12px;
-    font-size: 1em;
-  }
-  /* Scrolled adjustments mobile */
   .navbar.scrolled .logo img {
     height: 60px;
   }
-  .navbar.scrolled .site-title {
-    font-size: 1.5rem;
+
+  /* Titre réduit, non cassé et tronqué */
+  .navbar .site-title {
+    font-size: 1.8rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .navbar.scrolled .nav-link {
-    font-size: 0.8rem;
+  .navbar.scrolled .site-title {
+    font-size: 1.5rem !important;
+  }
+
+  /* Cacher les liens plein écran, on ne garde que le hamburger */
+  nav a {
+    display: none !important;
+  }
+
+  /* Positionnement du hamburger à droite */
+  .dropdown {
+    margin-left: auto;
+    margin-right: 12px;
+  }
+
+  /* Forcer le menu déroulant au-dessus */
+  .dropdown-menu {
+    z-index: 10000;
   }
 }
+
+
+
+
+
+
+
+
+
 
 /* ===== MENU HAMBURGER + DROPDOWN ===== */
 nav {
