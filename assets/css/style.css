@@ -591,6 +591,13 @@ a.card:hover {
 
 
 
+
+
+
+
+
+
+
 /*====== ABOUT US ======== */
 .about-hero {
   /* on charge l’image spécifique via une variable CSS */
@@ -603,10 +610,48 @@ a.card:hover {
   padding-bottom: 20px;
 }
 
+
+/* —————————— 1) GRID LAYOUT —————————— */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "who   offer"
+    "why   vision"
+    "meet  meet";
+  gap: 80px;               /* espace entre les blocs */
+  padding: 40px 20px;      /* marge autour du grid */
+}
+
+/* Placement des sections dans la grille */
+.section-who    { grid-area: who; }
+.section-offer  { grid-area: offer; }
+.section-why    { grid-area: why; }
+.section-vision { grid-area: vision; }
+.section-meet   { grid-area: meet; }
+
+/* Responsive : empilement sur mobile */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "who"
+      "offer"
+      "why"
+      "vision"
+      "meet";
+    gap: 40px;
+    padding: 20px 10px;
+  }
+}
+
+/* ——————— 2) SECTIONS DE CONTENU ——————— */
 .content-section {
+  /* On retire le margin-auto (géré par le gap du grid) */
+  margin: 0;
   max-width: 900px;
-  margin: 60px auto;            /* plus d’espace autour */
-  padding: 80px 40px;           /* plus de respiration */
+  padding: 60px 40px;                    /* respiration interne */
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.05);
@@ -614,13 +659,13 @@ a.card:hover {
   position: relative;
 }
 
-/* micro-interaction au hover */
+/* Micro-interaction au survol */
 .content-section:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 36px rgba(0,0,0,0.08);
 }
 
-/* accent colorée sous le titre */
+/* —————— 3) TITRES & ACCENTS —————— */
 .content-section h2 {
   font-size: 2.4em;
   margin-bottom: 24px;
@@ -637,7 +682,7 @@ a.card:hover {
   border-radius: 2px;
 }
 
-/* paragraphe plus aérien */
+/* ————— 4) PARAGRAPHES & LISTES ————— */
 .content-section p {
   font-size: 1.15em;
   line-height: 1.8;
@@ -645,7 +690,6 @@ a.card:hover {
   margin-bottom: 24px;
 }
 
-/* listes stylées */
 .content-section ul {
   list-style: none;
   padding-left: 0;
@@ -669,7 +713,7 @@ a.card:hover {
   line-height: 1;
 }
 
-/* blockquote pour un extrait percutant */
+/* ————— 5) BLOCKQUOTE STYLÉ ————— */
 .content-section blockquote {
   font-style: italic;
   border-left: 4px solid #cc6d3d;
@@ -677,6 +721,9 @@ a.card:hover {
   margin: 32px 0;
   color: #555;
 }
+
+
+
 
 
 
@@ -723,6 +770,18 @@ a.card:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .logo-link,
 .logo-link:hover,
 .logo-link:visited {
@@ -759,6 +818,94 @@ a.logo:focus {
   /* on charge l’image spécifique via une variable CSS */
   --hero-bg: url('../img/gallery/photo21.jpeg');
 }
+/* ———————— CONTACT PAGE GRID ———————— */
+/* —————— 1) GRID SIMPLIFIÉE —————— */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  gap: 40px;               /* espace entre boîtes */
+  padding: 60px 20px;      /* marge autour du grid */
+}
+
+/* 1.1) General & Booking full width */
+.section-general,
+.section-booking {
+  grid-column: 1 / -1;     /* occupe 2 colonnes */
+}
+/* Centrer horizontalement et verticalement le texte de la section “Quick Note” */
+.section-note {
+  display: flex;             /* transforme la boîte en flex container */
+  flex-direction: column;    /* empile les enfants (ici juste du texte) en colonne */
+  justify-content: center;   /* centre verticalement */
+  align-items: center;       /* centre horizontalement */
+  text-align: center;        /* pour que les paragraphes soient bien centrés */
+}
+
+/* —————— 2) TAILLE ET ESPACEMENTS DES BOÎTES —————— */
+.content-section {
+  margin: 0;               /* géré par le gap */
+  padding: 50px 40px;      /* plus compact qu’avant */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* micro-hover plus subtil */
+.content-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* —————— 3) TYPOGRAPHIE ET ACCENTS —————— */
+.content-section h2 {
+  font-size: 2em;
+  margin-bottom: 16px;
+  position: relative;
+}
+.content-section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #cc6d3d;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* paragraphes un peu plus compacts */
+.content-section p,
+.content-section ul {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.content-section ul li {
+  padding-left: 24px;
+}
+.content-section ul li::before {
+  left: 0;
+  font-size: 1.2em;
+}
+
+/* —————— 4) RESPONSIVE —————— */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    padding: 30px 10px;
+    gap: 30px;
+  }
+  /* plus de full-width sur mobile */
+  .section-general,
+  .section-booking {
+    grid-column: auto;
+  }
+}
+
+
+
+
+
 
 
 
@@ -1052,10 +1199,44 @@ a.logo:focus {
 
 
 /* === Page Produit: Wellness & Mindfulness Retreat === */
-.product-hero {
+.productMindfullness-hero {
    /* on charge l’image spécifique via une variable CSS */
    --hero-bg: url('../img/package/wellness&mindullRetreat.png');
  }
+
+.productBalanced-hero {
+  /* on charge l’image spécifique via une variable CSS */
+  --hero-bg: url('../img/package/balancedFitness.png');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Conteneur principal */
 .product-main {
