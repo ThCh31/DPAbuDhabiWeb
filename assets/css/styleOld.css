@@ -29,6 +29,7 @@ h2, .site-title {
 
 
 
+
 /* --------- NAVBAR ---------- */
 .navbar {
   position: fixed;
@@ -38,7 +39,7 @@ h2, .site-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;              /* normal height */
+  padding: 20px 40px;              /* normal height” */
   background: transparent;
   transition:
     background 0.3s ease,         /* transition for the black background */
@@ -71,6 +72,7 @@ h2, .site-title {
 .navbar.scrolled {
   background: rgba(0,0,0,0.5);     /* semi-transparent background */
   backdrop-filter: blur(5px);      /* option: add a blur */
+
   padding: 4px 10px;               /* thinner bar */
 }
 
@@ -96,64 +98,6 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.4em;
-}
-
-/*-------------------------------
-   RESPONSIVE : TABLETTE (<992px)
--------------------------------*/
-@media screen and (max-width: 992px) {
-  .navbar {
-    padding: 16px 30px;
-  }
-  .navbar .logo img {
-    height: 120px;
-  }
-  .navbar .site-title {
-    font-size: 2.8rem;
-  }
-  nav a {
-    margin-left: 20px;
-    font-size: 1.2em;
-  }
-  /* Scrolled adjustments tablette */
-  .navbar.scrolled .logo img {
-    height: 70px;
-  }
-  .navbar.scrolled .site-title {
-    font-size: 1.8rem;
-  }
-  .navbar.scrolled .nav-link {
-    font-size: 0.85rem;
-  }
-}
-
-/*-------------------------------
-   RESPONSIVE : MOBILE (<576px)
--------------------------------*/
-@media screen and (max-width: 576px) {
-  .navbar {
-    padding: 10px 20px;
-  }
-  .navbar .logo img {
-    height: 100px;
-  }
-  .navbar .site-title {
-    font-size: 2.2rem;
-  }
-  nav a {
-    margin-left: 12px;
-    font-size: 1em;
-  }
-  /* Scrolled adjustments mobile */
-  .navbar.scrolled .logo img {
-    height: 60px;
-  }
-  .navbar.scrolled .site-title {
-    font-size: 1.5rem;
-  }
-  .navbar.scrolled .nav-link {
-    font-size: 0.8rem;
-  }
 }
 
 /* ===== MENU HAMBURGER + DROPDOWN ===== */
@@ -250,65 +194,6 @@ nav {
 
 
 
-/*----------------------------------------
-   RESPONSIVE : TABLETTE (<992px)
-----------------------------------------*/
-@media screen and (max-width: 992px) {
-  nav {
-    gap: 18px;
-  }
-  .dropdown {
-    margin-left: 18px;
-    margin-right: 25px;
-  }
-  .hamburger {
-    width: 20px;
-    height: 16px;
-  }
-  .hamburger span {
-    height: 2.5px;
-  }
-  .dropdown-menu {
-    min-width: 90px;
-    top: calc(100% + 8px);
-  }
-  .dropdown-menu li a {
-    padding: 6px 10px;
-    font-size: 0.95rem;
-  }
-}
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  nav {
-    gap: 12px;
-  }
-  .dropdown {
-    margin-left: 12px;
-    margin-right: 18px;
-  }
-  .hamburger {
-    width: 18px;
-    height: 14px;
-  }
-  .hamburger span {
-    height: 2px;
-  }
-  .dropdown-menu {
-    min-width: 80px;
-    top: calc(100% + 6px);
-    right: 0;
-  }
-  .dropdown-menu li a {
-    padding: 5px 8px;
-    font-size: 0.9rem;
-  }
-}
-
-
-
 
 
 
@@ -364,51 +249,6 @@ nav {
   font-size: 1.5em;
   margin-bottom: 10px;
 }
-
-
-/*----------------------------------------
-   RESPONSIVE : TABLETTE (<992px)
-----------------------------------------*/
-@media screen and (max-width: 992px) {
-  .hero-text {
-    top: 18%;
-    left: 4%;
-    max-width: 80%;
-  }
-  .hero-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-  }
-  .hero-text p {
-    font-size: 1.2em;
-    margin-bottom: 8px;
-  }
-}
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  .hero-text {
-    top: 15%;
-    left: 5%;
-    transform: translateX(-40px) translateY(-20%);
-    max-width: 90%;
-    padding: 0 10px;
-  }
-  .hero-text.visible {
-    transform: translateX(0) translateY(-20%);
-  }
-  .hero-text h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  .hero-text p {
-    font-size: 1em;
-    margin-bottom: 6px;
-  }
-}
-
 
 
 /* ================== ABOUT HERO ================== */
@@ -467,63 +307,12 @@ nav {
 
 
 
-/*----------------------------------------
-   RESPONSIVE : TABLETTE (<992px)
-----------------------------------------*/
-@media screen and (max-width: 992px) {
-  .hero-base {
-    min-height: 80vh;
-    background-position: center top;
-  }
-  .hero-base .hero-text {
-    max-width: 650px;
-    padding: 0 40px;
-    transform: translateX(-40px);
-  }
-  .hero-base .hero-text.visible {
-    transform: translateX(0);
-  }
-  .hero-base .hero-text h1 {
-    font-size: 2.5em;
-    margin-bottom: 18px;
-  }
-  .hero-base .hero-text p {
-    font-size: 1.2em;
-  }
-}
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  .hero-base {
-    min-height: 60vh;
-  }
-  .hero-base .hero-text {
-    max-width: 90%;
-    padding: 0 20px;
-    transform: translateX(-20px);
-  }
-  .hero-base .hero-text.visible {
-    transform: translateX(0);
-  }
-  .hero-base .hero-text h1 {
-    font-size: 2em;
-    margin-bottom: 16px;
-  }
-  .hero-base .hero-text p {
-    font-size: 1em;
-  }
-}
 
 
 
 
 
-
-
-
-/* ========= EXPERIENCE SECTION MAIN PAGE ========= */
+/* ========= EXPERIENE SECTION MAIN PAGE ========= */
 .card {
   background: #fff;
   border-radius: 10px;
@@ -543,7 +332,7 @@ nav {
   width: 100%;
   object-fit: cover;
   display: block;
-  height: auto;
+  height:auto;
 }
 
 .card-text {
@@ -575,39 +364,6 @@ a.card:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-
-/*----------------------------------------
-   RESPONSIVE : TABLETTE (<992px)
-----------------------------------------*/
-@media screen and (max-width: 992px) {
-  .card {
-    width: calc(50% - 20px);
-    margin: 10px;
-  }
-  .card-text {
-    padding: 10px;
-  }
-  .card-text h3 {
-    font-size: 1.1em;
-  }
-}
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  .card {
-    width: 90%;
-    margin: 10px auto;
-  }
-  .card-text {
-    padding: 8px;
-  }
-  .card-text h3 {
-    font-size: 1em;
-  }
-}
-
 /* ==== EN-TÊTE FILTRES ==== */
 .experience-header {
   display: flex;
@@ -631,6 +387,7 @@ a.card:hover {
   padding: 4px 8px;
   border-radius: 4px;
   transition: background 0.2s, color 0.2s;
+
 }
 
 .filter-btn:hover {
@@ -642,7 +399,7 @@ a.card:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 
-/* Hiding not chosen cards */
+/* Hidding not chesen cards */
 .hidden {
   display: none !important;
 }
@@ -654,21 +411,22 @@ a.card:hover {
   justify-content: center;
   overflow-x: auto;           /* activate horizontal scroll */
   gap: 20px;                  /* same horizontal space between the cards */
-  padding: 60px 20px 30px 20px;       /* top 60px / left 20px / bottom 30px / right 20px */
+  padding: 60px 20px 30px 20px;       /* top 60px / left 20px / bottom 10px / right 20px */
   scroll-behavior: smooth;
   scroll-padding-left: 20px;
   scroll-padding-right: 20px;
 }
 
+
 .experience-cards .card {
   flex: 0 0 auto;             /* no shrink nor grow */
   scroll-snap-align: start;
 }
-
-/* When the container overflows, switch to left alignment */
+/* When the container overflow, we switch to left alignement */
 .experience-cards.scrollable {
   justify-content: flex-start;
 }
+
 
 .experience-cards::-webkit-scrollbar {
   height: 6px;
@@ -693,46 +451,11 @@ a.card:hover {
   margin-left: 40px;
 }
 
-
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  /* Empilement des filtres */
-  .experience-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 0 15px;
-  }
-  .filter-buttons {
-    flex-wrap: wrap;
-    gap: 6px;
-    width: 100%;
-  }
-  .filter-btn {
-    font-size: 0.95rem;
-    padding: 2px 6px;
-  }
-
-  /* Cartes d’expérience adaptées */
-  .experience-cards {
-    gap: 12px;
-    padding: 20px 10px 20px 10px;
-  }
-  .experience-cards .card {
-    flex: 0 0 80%;
-    margin: 0 auto;
-  }
-}
-
-
 /* === Preview Events sur index.html === */
 .events-preview {
   background-color: #f4efe8;   /* same beige background */
   padding: 40px 20px 60px;     /* top/bottom + lateral space */
-  margin: 0 auto;              /* center block */
+  margin: 0 auto;         /* space on the bottom of the bloc */
   max-width: none;
 }
 
@@ -780,7 +503,7 @@ a.card:hover {
 .reviews-preview {
   background-color: #f4efe8;   /* same beige as .experience-title */
   box-shadow: none;            /* no shadow  */
-  padding: 30px 40px;          /* top/bottom + lateral space */
+  padding: 30px 40px;          /* 60px top/bottom, 40px left/right to breathe */
   margin: 0 auto;
   max-width: none;
 }
@@ -793,69 +516,17 @@ a.card:hover {
   margin-top: 20px;
 }
 
-/* Centering of the button below the 3 cards */
+/* Centering of the button bellow the 3 cards */
 #reviews-cards-preview .show-more-btn {
   display: block;
   width: fit-content;
   margin: 30px auto 0;
 }
 
-/* keep the left alignment of the title */
+/* keep the left alignement of the title */
 #reviews-preview h2 {
   margin-left: 40px;
 }
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  /* Events Preview */
-  .events-preview {
-    padding: 20px 10px 40px;
-  }
-  #events-preview .events-grid.preview {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 20px;
-  }
-  #events-preview .event-card {
-    padding: 12px 10px;
-  }
-  #events-preview .event-date {
-    margin-bottom: 6px;
-  }
-  #events-preview .event-card h3 {
-    font-size: 1em;
-    margin-bottom: 4px;
-  }
-  #events-preview .event-card p {
-    font-size: 0.9em;
-    line-height: 1.3;
-  }
-  #events-preview .show-more-btn {
-    margin: 20px auto 0;
-  }
-
-  /* Reviews Preview */
-  .reviews-preview {
-    padding: 20px 15px;
-  }
-  #reviews-cards-preview .reviews-cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 20px;
-  }
-  #reviews-cards-preview .show-more-btn {
-    margin: 20px auto 0;
-  }
-  #reviews-preview h2 {
-    margin-left: 20px;
-    font-size: 1.5em;
-  }
-}
-
-
-
 
 /* === Preview Gallery on index.html === */
 .gallery-preview {
@@ -865,6 +536,7 @@ a.card:hover {
   margin: 0 auto;
   max-width: none;
 }
+
 
 #gallery-preview .gallery-grid {
   display: grid;
@@ -887,7 +559,7 @@ a.card:hover {
   object-fit: cover;
   display: block;
 }
-
+ ca
 /* button centered under the thumbnails */
 #gallery-preview .show-more-btn {
   display: block;
@@ -895,38 +567,12 @@ a.card:hover {
   margin: 30px auto 0;
 }
 
+
 /* Automatically centers all .show-more-btn */
 .show-more-btn {
   display: block;
   width: fit-content;
   margin: 30px auto 0;
-}
-
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  .gallery-preview {
-    padding: 20px 15px;
-  }
-
-  #gallery-preview .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  #gallery-preview .gallery-item {
-    /* keep aspect ratio, but ensure full width */
-    width: 100%;
-  }
-
-  /* Reduce space under buttons */
-  #gallery-preview .show-more-btn,
-  .show-more-btn {
-    margin: 20px auto 0;
-  }
 }
 
 
@@ -1322,53 +968,12 @@ a.logo:focus {
   margin: 0;
 }
 
-/* Content section wrapper */
+
 .reviews-main .content-section {
   max-width: 1400px;
   width: 100%;
   margin: 40px auto;
   padding: 60px 20px;
-}
-
-
-/*----------------------------------------
-   RESPONSIVE : TABLETTE (<992px)
-----------------------------------------*/
-@media screen and (max-width: 992px) {
-  .reviews-main .content-section {
-    padding: 50px 20px;
-  }
-}
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  /* Content section */
-  .reviews-main .content-section {
-    padding: 40px 10px;
-  }
-
-  /* Collapse to one column */
-  .reviews-cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  /* Card adjustments */
-  .review-card {
-    padding: 16px;
-  }
-  .reviewer-name {
-    font-size: 1.1em;
-  }
-  .review-stars {
-    font-size: 1em;
-  }
-  .review-text {
-    font-size: 0.95em;
-    line-height: 1.4;
-  }
 }
 
 
@@ -1565,46 +1170,6 @@ a.logo:focus {
   color: #002d32;
 }
 
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  /* Empilement en une seule colonne */
-  .events-main {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 20px 10px 40px;
-  }
-
-  /* Grille de mini-cartes en colonne */
-  .events-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-
-  /* Ajustement des cartes */
-  .event-card {
-    padding: 16px 12px;
-  }
-  .event-card h3 {
-    font-size: 1.1em;
-  }
-  .event-card p {
-    font-size: 0.95em;
-    line-height: 1.4;
-  }
-
-  /* Sections generiques */
-  .content-section {
-    padding: 20px 10px;
-  }
-  .content-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 16px;
-  }
-}
-
 
 
 
@@ -1710,6 +1275,7 @@ a.logo:focus {
 }
 .schedule-list li strong {
   color: #cc6d3d;
+
 }
 
 /* Galerie produit (aperçu) */
@@ -1749,60 +1315,6 @@ a.logo:focus {
   margin-bottom: 0.6em;
 }
 
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  /* Conteneur principal : moins d’espacement */
-  .product-main {
-    padding: 20px 10px 40px;
-    gap: 40px;
-  }
-
-  /* Info & pricing : texte plus petit, empilement */
-  .product-info {
-    max-width: 90%;
-    padding: 0 10px;
-  }
-  .product-info p {
-    font-size: 1em;
-  }
-  .pricing {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .price-tag {
-    font-size: 1.6em;
-  }
-
-  /* Itinéraire : items plus compacts */
-  .product-schedule .schedule-list {
-    padding: 0;
-  }
-  .schedule-list li {
-    padding: 10px 14px;
-    font-size: 1em;
-    line-height: 1.4;
-  }
-
-  /* Galerie produit : une colonne */
-  .product-gallery .preview {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* Comments produit : une colonne */
-  .product-comments .reviews-cards {
-    grid-template-columns: 1fr;
-  }
-
-  /* Titres de section plus petits */
-  .product-main h2 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
-  }
-}
-
 /* ====== FITNESS PACKAGES ======= */
 /* ——— Sélecteur de difficulté ——— */
 .difficulty-selector {
@@ -1833,22 +1345,6 @@ a.logo:focus {
 .difficulty-option input:checked + span {
   background-color: #cc6d3d;
   color: #fff;
-}
-
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  .difficulty-selector {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .difficulty-option span {
-    padding: 4px 10px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
 }
 
 
