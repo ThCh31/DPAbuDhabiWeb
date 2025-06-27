@@ -27,8 +27,6 @@ h2, .site-title {
 
 
 
-
-
 /* --------- NAVBAR ---------- */
 .navbar {
   position: fixed;
@@ -38,18 +36,18 @@ h2, .site-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;              /* normal height */
+  padding: 20px 40px;
   background: transparent;
   transition:
-    background 0.3s ease,         /* transition for the black background */
-    padding 0.3s ease;             /* reduce the height */
+    background 0.3s ease,
+    padding 0.3s ease;
   z-index: 999;
 }
 
 /* --- INITIAL STATE --- */
 .navbar .logo img {
-  height: 150px;                      /* normal height of the logo */
-  transition: height 0.3s ease;      /* smooth transition */
+  height: 150px;
+  transition: height 0.3s ease;
 }
 
 .navbar .site-title {
@@ -59,37 +57,26 @@ h2, .site-title {
 }
 
 /* --- SCROLLED STATE --- */
-.navbar.scrolled .logo img {
-  height: 80px;                      /* reduced logo */
-}
-
-.navbar.scrolled .site-title {
-  font-size: 2rem;                 /* reduced title */
-}
-
-/* --------- WHEN SCROLLING ---------- */
 .navbar.scrolled {
-  background: rgba(0,0,0,0.5);     /* semi-transparent background */
-  backdrop-filter: blur(5px);      /* option: add a blur */
-  padding: 4px 10px;               /* thinner bar */
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  padding: 4px 10px;
+}
+.navbar.scrolled .logo img {
+  height: 80px;
+}
+.navbar.scrolled .site-title {
+  font-size: 2rem;
 }
 
-/* Logo height */
-.navbar.scrolled .navbar-brand img {
-  height: 30px;    /* adjusted if needed */
-}
-
-/* links height */
-.navbar.scrolled .nav-link {
-  font-size: 0.9rem;
-}
-
+/* Logo container */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+/* Nav links */
 nav a {
   margin-left: 25px;
   color: white;
@@ -98,97 +85,10 @@ nav a {
   font-size: 1.4em;
 }
 
-/*-------------------------------
-   RESPONSIVE : TABLETTE (<992px)
--------------------------------*/
-@media screen and (max-width: 992px) {
-  .navbar {
-    padding: 16px 30px;
-  }
-  .navbar .logo img {
-    height: 120px;
-  }
-  .navbar .site-title {
-    font-size: 2.8rem;
-  }
-  nav a {
-    margin-left: 20px;
-    font-size: 1.2em;
-  }
-  /* Scrolled adjustments tablette */
-  .navbar.scrolled .logo img {
-    height: 70px;
-  }
-  .navbar.scrolled .site-title {
-    font-size: 1.8rem;
-  }
-  .navbar.scrolled .nav-link {
-    font-size: 0.85rem;
-  }
-}
-
-/*-------------------------------
-   RESPONSIVE : MOBILE (<576px)
--------------------------------*/
-/*----------------------------------------
-   MOBILE : améliorations nav / titre
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  /* Navbar toujours opaque pour dissocier du contenu */
-  .navbar {
-    background: rgba(0, 0, 0, 0.6) !important;
-    padding: 8px 12px;
-  }
-
-  /* Logo */
-  .navbar .logo img {
-    height: 100px;
-  }
-  .navbar.scrolled .logo img {
-    height: 60px;
-  }
-
-  /* Titre réduit, non cassé et tronqué */
-  .navbar .site-title {
-    font-size: 1.8rem !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .navbar.scrolled .site-title {
-    font-size: 1.5rem !important;
-  }
-
-  /* Cacher les liens plein écran, on ne garde que le hamburger */
-  nav a {
-    display: none !important;
-  }
-
-  /* Positionnement du hamburger à droite */
-  .dropdown {
-    margin-left: auto;
-    margin-right: 12px;
-  }
-
-  /* Forcer le menu déroulant au-dessus */
-  .dropdown-menu {
-    z-index: 10000;
-  }
-}
-
-
-
-
-
-
-
-
-
-
 /* ===== MENU HAMBURGER + DROPDOWN ===== */
 nav {
-  position: relative;        /* absolute dropdown  */
-  display: flex;             /* transform nav in a flex container */
+  position: relative;
+  display: flex;
   align-items: center;
   gap: 25px;
 }
@@ -210,6 +110,7 @@ nav {
   cursor: pointer;
   padding: 0;
 }
+
 .hamburger span {
   display: block;
   height: 3px;
@@ -218,7 +119,6 @@ nav {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* transform hamburger in cross when open */
 .dropdown.open .hamburger span:nth-child(1) {
   transform: translateY(7.5px) rotate(45deg);
 }
@@ -229,7 +129,6 @@ nav {
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* dropdown menu */
 .dropdown-menu {
   min-width: 100px;
   position: absolute;
@@ -258,7 +157,6 @@ nav {
   padding: 0;
 }
 
-/* items style */
 .dropdown-menu li a {
   white-space: nowrap;
   text-align: left;
@@ -272,69 +170,105 @@ nav {
 .dropdown-menu li a:hover {
   background: transparent;
 }
-
 .dropdown-menu li:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 
 
 
-/*----------------------------------------
-   RESPONSIVE : TABLETTE (<992px)
-----------------------------------------*/
-@media screen and (max-width: 992px) {
-  nav {
-    gap: 18px;
+
+/* ----------------------------------
+   RESPONSIVE POUR TABLETTES
+   ECRANS ≤ 1024px
+   ---------------------------------- */
+@media only screen and (max-width: 1024px) {
+  /* Ajustez la valeur en fonction de la hauteur
+   de votre navbar (padding + hauteur du logo) */
+  body,
+  main,
+  .content {
+    padding-top: calc(50px + 40px); /* 150px de logo + 20px de padding top/bottom */
+    background: #888888;
+  }
+
+
+  /* On peut réduire un peu la taille de la navbar */
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  /* On cache les liens et on n’affiche que le hamburger */
+  .navbar nav > a {
+    display: none !important;
   }
   .dropdown {
-    margin-left: 18px;
-    margin-right: 25px;
-  }
-  .hamburger {
-    width: 20px;
-    height: 16px;
-  }
-  .hamburger span {
-    height: 2.5px;
-  }
-  .dropdown-menu {
-    min-width: 90px;
-    top: calc(100% + 8px);
+    display: block;
+    margin-left: 0;
+    margin-right: 20px;
   }
   .dropdown-menu li a {
-    padding: 6px 10px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;  /* ou 14px, 0.85em… à ajuster selon vos goûts */
+  }
+
+  /* Taille du logo un peu réduite */
+  .navbar .logo img {
+    height: 100px;
+  }
+  .navbar.scrolled .logo img {
+    height: 60px;
   }
 }
 
-/*----------------------------------------
-   RESPONSIVE : MOBILE (<576px)
-----------------------------------------*/
-@media screen and (max-width: 576px) {
-  nav {
-    gap: 12px;
+/* ----------------------------------
+   RESPONSIVE POUR SMARTPHONES
+   ECRANS ≤ 768px
+   ---------------------------------- */
+@media only screen and (max-width: 768px) {
+  body,
+  main,
+  .content {
+    padding-top: calc(50px + 40px); /* 150px de logo + 20px de padding top/bottom */
   }
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  /* Cacher absolument tous les liens textes */
+  .navbar nav > a {
+    display: none !important;
+  }
+
+  /* Afficher le hamburger (déjà en place) */
   .dropdown {
-    margin-left: 12px;
-    margin-right: 18px;
-  }
-  .hamburger {
-    width: 18px;
-    height: 14px;
-  }
-  .hamburger span {
-    height: 2px;
-  }
-  .dropdown-menu {
-    min-width: 80px;
-    top: calc(100% + 6px);
-    right: 0;
+    display: block;
+    margin-left: 0;
+    margin-right: 50px;
+    overflow: visible;
   }
   .dropdown-menu li a {
-    padding: 5px 8px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  /* Logo adapté aux petits écrans */
+  .navbar .logo img {
+    height: 80px;
+  }
+  .navbar.scrolled .logo img {
+    height: 50px;
+  }
+
+  /* Titre du site réduit */
+  .navbar .site-title {
+    font-size: 1.2rem;
+  }
+  .navbar.scrolled .site-title {
+    font-size: 1.0rem;
   }
 }
+
+
+
+
 
 
 
@@ -751,7 +685,8 @@ a.card:hover {
     padding: 20px 10px 20px 10px;
   }
   .experience-cards .card {
-    flex: 0 0 80%;
+    flex: 0 0 40%;
+    max-width: 240px;
     margin: 0 auto;
   }
 }
