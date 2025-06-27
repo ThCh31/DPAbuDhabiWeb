@@ -380,7 +380,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;                                    /* FULL SCREEN */
+  min-height: 180vh;                                    /* FULL SCREEN */
   /* WE READ THE SPECIFIC CSS VARIABLE FOR THE IMAGE BACKGROUND */
   background: var(--hero-bg) no-repeat center/cover;
   overflow: hidden;
@@ -1582,21 +1582,44 @@ a.logo:focus {
 
 /* === Page Produit: Wellness & Mindfulness Retreat === */
 .productMindfullness-hero {
-   /* on charge l’image spécifique via une variable CSS */
    --hero-bg: url('../img/package/wellness&mindullRetreat.png');
  }
 
 .productBalanced-hero {
-  /* on charge l’image spécifique via une variable CSS */
   --hero-bg: url('../img/package/balancedFitness.png');
 }
 
 
+.productBioHacking-hero {
+  --hero-bg: url('../img/package/mentalResistance&Biohacking.png');
+}
 
+.productTeamBuilding-hero {
+  --hero-bg: url('../img/package/teamBuilding.png');
+}
 
+.productContentCreator-hero {
+  --hero-bg: url('../img/package/contentCreator.png');
+}
 
+.productSustainability-hero {
+  --hero-bg: url('../img/package/sustainability.png');
+}
 
+.productArtCulture-hero {
+  --hero-bg: url('../img/package/artCultureHeritage.png');
+}
 
+.productFamily-hero {
+  --hero-bg: url('../img/package/FamilyFriendlyCulturalHoliday.png ');
+}
+
+.productFitnessExtreme-hero {
+  --hero-bg: url('../img/package/extremFitness.png');
+}
+.productEliteAdventures-hero {
+  --hero-bg: url('../img/package/eliteAdventures.png');
+}
 
 
 
@@ -1637,7 +1660,7 @@ a.logo:focus {
   text-align: center;
 }
 .product-info p {
-  font-size: 1.1em;
+  font-size: 1.25em;
   line-height: 1.6;
   margin: 20px 0;
   color: #002d32;
