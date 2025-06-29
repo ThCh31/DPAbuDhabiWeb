@@ -941,20 +941,7 @@ a.card:hover {
 .section-vision { grid-area: vision; }
 .section-meet   { grid-area: meet; }
 
-/* Responsive: stacking on mobile */
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "who"
-      "offer"
-      "why"
-      "vision"
-      "meet";
-    gap: 40px;
-    padding: 20px 10px;
-  }
-}
+
 
 /* ——————— 2) CONTENT SECTION ——————— */
 .content-section {
@@ -1030,6 +1017,66 @@ a.card:hover {
   margin: 32px 0;
   color: #555;
 }
+
+/* Responsive: stacking on mobile */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "who"
+      "offer"
+      "why"
+      "vision"
+      "meet";
+    gap: 40px;
+    padding: 20px 10px;
+  }
+
+  .content-section {
+    padding: 40px 20px;        /* au lieu de 60px 40px */
+    max-width: 100%;           /* s’assure qu’elles remplissent bien l’écran */
+  }
+
+  /* Titres un peu plus compacts */
+  .content-section h2 {
+    font-size: 1.8em;          /* au lieu de 2.4em */
+    margin-bottom: 16px;       /* légèremen raccourci */
+  }
+
+  /* Paragraphes et listes allégés */
+  .content-section p {
+    font-size: 1em;            /* au lieu de 1.15em */
+    line-height: 1.6;          /* plus serré */
+    margin-bottom: 16px;
+  }
+  .content-section ul li {
+    font-size: 1em;            /* au lieu de 1.1em */
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  /* Hero : texte principal réduit */
+  .about-hero .hero-text h1 {
+    font-size: 1.6em;          /* adapte la taille du titre */
+  }
+  .about-hero .hero-text p {
+    font-size: 0.9em;
+  }
+
+  /* Boutons plus petits et alignés verticalement */
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;                 /* moins d’espacement horizontal */
+    margin-top: 20px;
+  }
+  .cta-buttons .btn {
+    padding: 10px 18px;        /* au lieu de 14px 28px */
+    font-size: 0.95em;
+  }
+}
+
+
+
 
 
 /* Call to action buttons */
