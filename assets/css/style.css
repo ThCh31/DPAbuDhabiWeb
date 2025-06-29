@@ -190,7 +190,9 @@ nav {
     padding-top: calc(50px + 40px); /* 150px de logo + 20px de padding top/bottom */
     background: #888888;
   }
-
+  .hamburger {
+    color: #fff;            /* toujours blanc par défaut */
+  }
 
   /* On peut réduire un peu la taille de la navbar */
   .navbar {
@@ -263,20 +265,6 @@ nav {
   }
   .navbar.scrolled .site-title {
     font-size: 1.0rem;
-  }
-}
-
-/* ===== Dark mode : hamburger blanc ===== */
-@media (prefers-color-scheme: dark) {
-  /* Tous les spans du bouton hamburger */
-  .hamburger span {
-    background-color: #fff !important;
-  }
-
-  /* Et quand il est “ouvert” (les traits en croix) */
-  .dropdown.open .hamburger span:nth-child(1),
-  .dropdown.open .hamburger span:nth-child(3) {
-    background-color: #fff !important;
   }
 }
 
