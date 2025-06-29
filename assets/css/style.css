@@ -266,6 +266,20 @@ nav {
   }
 }
 
+/* ===== Dark mode : hamburger blanc ===== */
+@media (prefers-color-scheme: dark) {
+  /* Tous les spans du bouton hamburger */
+  .hamburger span {
+    background-color: #fff !important;
+  }
+
+  /* Et quand il est “ouvert” (les traits en croix) */
+  .dropdown.open .hamburger span:nth-child(1),
+  .dropdown.open .hamburger span:nth-child(3) {
+    background-color: #fff !important;
+  }
+}
+
 
 
 
