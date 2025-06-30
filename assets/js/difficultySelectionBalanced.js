@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prices = {
-    beginner:     2500,
-    intermediate: 3500,
-    advanced:     4500
+    beginner:     1199,
+    intermediate: 1299,
+    advanced:     1399
   };
 
   const priceTag  = document.querySelector('.price-tag');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     radio.addEventListener('change', () => {
       const lvl    = radio.value;
       const amount = prices[lvl];
-      priceTag.textContent = `$${amount.toLocaleString()} USD`;
+      priceTag.textContent = `${amount.toLocaleString()} €`;
       // btnPay.href = `...checkout-link?amount=${amount}`;
 
       updateDescription(lvl);
