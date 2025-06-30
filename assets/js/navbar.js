@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function fetchNavbar() {
-  const resp = await fetch('navbar.html');
+  const resp = await fetch('/navbar.html');
   if (!resp.ok) throw new Error(resp.status);
   document.getElementById('site-navbar').innerHTML = await resp.text();
 }
