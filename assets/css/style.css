@@ -1294,32 +1294,68 @@ a.logo:focus {
   padding-bottom: 40px;
 }
 
-/* Map grid */
-.reviews-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
 
-/* Individual card */
-.review-card {
-  background: #fff;
-  color: #002d32;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+/* Container des cartes : colonne verticale, centrée, espacement */
+.reviews-cards {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  align-items: center; /* centre horizontalement */
+  padding: 20px 0;
 }
 
-/* Reviewer Name */
-.reviewer-name {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 0;
+/* Chaque carte s’étend largement mais reste limitée */
+.review-card {
+  width: 100%;
+  max-width: 800px; /* largeur max pour ne pas aller trop loin */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 16px;
+  box-sizing: border-box;
 }
+
+/* Titre cliquable avec flèche */
+.reviewer-name {
+  cursor: pointer;
+  position: relative;
+  padding-right: 24px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #4a4a4a;
+}
+.reviewer-name::after {
+  content: '▸';
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Texte masqué par défaut, mais occupe toute la largeur du contenu */
+.review-text {
+  display: none;
+  width: 100%;
+  margin-top: 12px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Au clic : on déploie le texte et on fait pivoter la flèche */
+.review-card.expanded .review-text {
+  display: block;
+}
+.review-card.expanded .reviewer-name::after {
+  transform: rotate(90deg);
+}
+
+
+
+
+
 
 /* Stars */
 .review-stars {
@@ -1327,13 +1363,6 @@ a.logo:focus {
   color: #cc6d3d;   /* Same color as the button */
 }
 
-/* Text of the commentary */
-.review-text {
-  font-size: 1em;
-  line-height: 1.5;
-  font-style: italic;
-  margin: 0;
-}
 
 /* Content section wrapper */
 .reviews-main .content-section {
@@ -1384,6 +1413,36 @@ a.logo:focus {
   }
 }
 
+/* Masque tout le texte des cartes */
+.review-text {
+  display: none; /* override de l’existant :contentReference[oaicite:0]{index=0} */
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Rend le titre cliquable et ajoute une flèche */
+.reviewer-name {
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+}
+.reviewer-name::after {
+  content: '▸';
+  position: absolute;
+  right: 0;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Quand la carte est “expanded”, on affiche le texte */
+.review-card.expanded .review-text {
+  display: block;
+}
+
+/* Rotation de la flèche sur ouverture */
+.review-card.expanded .reviewer-name::after {
+  transform: rotate(90deg);
+}
 
 
 

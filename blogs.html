@@ -41,21 +41,24 @@
     <h2>Latest Posts</h2>
 
     <div class="reviews-cards">
+
       <div class="review-card section-in-right">
-        <h3 class="reviewer-name">Why Abu Dhabi Is the Ideal Place to Recharge Your Spirit</h3>
+        <h3 class="reviewer-name">
+          Why Abu Dhabi Is the Ideal Place to Recharge Your Spirit
+        </h3>
         <p class="review-text">
-          Introduction: Beyond the Skyscrapers<br>
+          <strong>Introduction: Beyond the Skyscrapers</strong><br>
           Abu Dhabi, often known for its luxurious skyline and futuristic architecture, is quickly emerging as a global hub for wellness tourism. From serene deserts and pristine beaches to world-class wellness retreats, this Emirati capital offers a holistic escape for mind, body, and soul. At The Abu Dhabi Recharge, we’re redefining what it means to travel for self-care.
           <br><br>
-          The Wellness Ecosystem in the Capital<br>
+          <strong>The Wellness Ecosystem in the Capital </strong><br>
           Imagine starting your day with sunrise yoga on Saadiyat Beach, followed by guided mindfulness in the dunes, and ending with a detoxifying hammam session at a traditional Emirati spa. Abu Dhabi’s natural tranquility and modern wellness facilities create the ideal environment for restoration.
           <br><br>
           “The desert taught me how to sit still. The ocean taught me how to breathe.” — A guest from our Elite Wellness Journey
           <br><br>
-          What Makes The Abu Dhabi Recharge Stand Out?<br>
+          <strong>What Makes The Abu Dhabi Recharge Stand Out?</strong><br>
           Our retreats combine cultural immersion, luxury adventure, and personalized wellness in personalized packages. You want to kayak amidst mangroves or meditate in the peaceful courtyards of Sheikh Zayed Mosque? Each activity is crafted to allow you to unplug and recharge.
           <br><br>
-          Call to Action<br>
+          <strong>Call to Action</strong><br>
           ✨ Ready to escape the noise and into clarity?<br>
           Indulge yourself in your Wellness Escape today with The Abu Dhabi Recharge — your soul is worth it.
         </p>
@@ -64,27 +67,27 @@
       <div class="review-card section-in-right">
         <h3 class="reviewer-name">5 Must-Experience Journeys with The Abu Dhabi Recharge</h3>
         <p class="review-text">
-          1. Wellness Escape ????<br>
+          <strong>1. Wellness Escape </strong><br>
           Discover tranquility with beach yoga, desert breathing, and luxurious spa treatments. Ideal for those requiring a mental refresh.
           <br><br>
-          2. Fitness Journey ????️‍♂️<br>
+          <strong>2. Fitness Journey </strong><br>
           Push limits with dune bootcamps, trainer sessions, and gym-inclusive resorts on Yas Island.
           <br><br>
-          3. Cultural Immersion ????<br>
+          <strong>3. Cultural Immersion </strong><br>
           Immerse yourself in the true soul of Abu Dhabi. Walk through Qasr Al Watan, admire Louvre Abu Dhabi, and learn from local craftsmen.
           <br><br>
-          4. Luxury Adventures ????<br>
+          <strong> 4. Luxury Adventures </strong><br>
           From Ferrari World experiences to mangrove kayaking, our adventure package is perfect for thrill-seekers who also insist on refinement.
           <br><br>
-          5. Creator Experiences ????<br>
+          <strong> 5. Creator Experiences </strong><br>
           For creators and influencers, these tours include landscape shoots, editing sessions, and collaborations with brands in iconic places.
           <br><br>
-          Bonus Tip:<br>
+          <strong>Bonus Tip:</strong><br>
           Every journey can be designed according to your energy level and purpose of travel. You're not a traveler — you're a soul with a path.
           <br><br>
-          Last CTA:<br>
+          <strong>Last CTA:</strong><br>
           Don't vacation — transmute.<br>
-          ???? Discover what journey is perfect for your inner landscape. Visit theabudhabirecharge.com to get started.
+          Discover what journey is perfect for your inner landscape. Visit theabudhabirecharge.com to get started.
         </p>
       </div>
 
@@ -158,5 +161,22 @@
 
 <script src="assets/js/homePageAnimation.js"></script>
 <script src="assets/js/navbar.js"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.review-card').forEach(card => {
+      const header = card.querySelector('.reviewer-name');
+      header.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+    });
+  });
+</script>
+
+
+
+
+
 </body>
 </html>
