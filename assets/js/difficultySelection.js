@@ -1,5 +1,3 @@
-// difficultySelection.js
-
 document.addEventListener('DOMContentLoaded', () => {
   const prices = {
     beginner:     2500,
@@ -7,18 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
     advanced:     4500
   };
 
-  const priceTag = document.querySelector('.price-tag');
-  const radios   = document.querySelectorAll('input[name="difficulty"]');
-  const btnPay   = document.getElementById('paypal-btn');
+  const priceTag  = document.querySelector('.price-tag');
+  const radios    = document.querySelectorAll('input[name="difficulty"]');
+  const btnPay    = document.getElementById('paypal-btn');
+  const descItems = document.querySelectorAll('.level-description__item');
+
+  function updateDescription(lvl) {
+    descItems.forEach(el =>
+      el.classList.toggle('active', el.dataset.level === lvl)
+    );
+  }
+
+  // initialisation
+  const initLevel = document.querySelector('input[name="difficulty"]:checked').value;
+  updateDescription(initLevel);
 
   radios.forEach(radio => {
     radio.addEventListener('change', () => {
       const lvl    = radio.value;
       const amount = prices[lvl];
       priceTag.textContent = `$${amount.toLocaleString()} USD`;
+      // btnPay.href = `...checkout-link?amount=${amount}`;
 
-      // — si tu souhaites passer le montant dans l'URL PayPal :
-      // btnPay.href = `https://www.paypal.com/your-checkout-link?amount=${amount}`;
+      updateDescription(lvl);
     });
   });
 });
