@@ -540,6 +540,32 @@ a.card:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+.card.fully-booked::after {
+  content: "Fully Booked";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  text-align: center;
+  pointer-events: none; /* pour que le lien ne soit plus cliquable si souhaité */
+}
+
+.card.fully-booked img {
+  filter: grayscale(80%) brightness(0.6);
+}
+
+
+
+
 
 /*----------------------------------------
    RESPONSIVE : TABLETTE (<992px)
